@@ -35,8 +35,9 @@ print("Keep-alive ativo!")
 # CÉLULA 4 — Script principal (cole tudo daqui pra baixo)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-import time, hashlib, json, requests, gspread
+import os, time, hashlib, json, requests, gspread
 from google.auth import default
+from google.oauth2.service_account import Credentials
 from collections import Counter
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -59,7 +60,7 @@ def next_check_br(seconds):
 
 ANILIST_API_URL  = "https://graphql.anilist.co"
 SPREADSHEET_NAME = "planoha animes armário - (python fucking good bro)"
-SYNC_INTERVAL    = 3600   # segundos entre verificações (300 = 5 min)
+SYNC_INTERVAL    = 300   # segundos entre verificações (300 = 5 min)
 
 USERNAMES = [
     "CianBrz", "BingoRTv", "Dioo", "Gumya",
@@ -814,31 +815,49 @@ def run_sync(spreadsheet, verbose=True):
     return all_data
 
 # ─────────────────────────────────────────────
-# MAIN — loop de auto-sync
+# AUTENTICAÇÃO GOOGLE
 # ─────────────────────────────────────────────
 
-def main():
-    print("=" * 55)
-    print("  Armário dos Animes  |  Auto-Sync")
-    print("=" * 55)
+SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+]
 
-    print("\nConectando ao Google Sheets...")
-    creds, _ = default(scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive",
-    ])
-    gc = gspread.authorize(creds)
+def get_google_client():
+    """
+    No GitHub Actions, usa o secret GOOGLE_SERVICE_ACCOUNT_JSON.
+    No Colab/local, se o secret não existir, tenta usar as credenciais padrão.
+    """
+    service_account_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
+
+    if service_account_json:
+        try:
+            info = json.loads(service_account_json)
+            creds = Credentials.from_service_account_info(info, scopes=SCOPES)
+            return gspread.authorize(creds)
+        except json.JSONDecodeError as e:
+            raise RuntimeError(
+                "O secret GOOGLE_SERVICE_ACCOUNT_JSON não parece ser um JSON válido. "
+                "Cole o conteúdo inteiro do arquivo .json da conta de serviço."
+            ) from e
+
+    creds, _ = default(scopes=SCOPES)
+    return gspread.authorize(creds)
+
+def open_or_create_spreadsheet(gc):
+    spreadsheet_id = os.environ.get("SPREADSHEET_ID", "").strip()
+
+    if spreadsheet_id:
+        return gc.open_by_key(spreadsheet_id)
 
     try:
-        spreadsheet = gc.open(SPREADSHEET_NAME)
-        print(f"Planilha '{SPREADSHEET_NAME}' encontrada.")
+        return gc.open(SPREADSHEET_NAME)
     except gspread.SpreadsheetNotFound:
-        spreadsheet = gc.create(SPREADSHEET_NAME)
-        print(f"Planilha '{SPREADSHEET_NAME}' criada.")
+        return gc.create(SPREADSHEET_NAME)
 
+def organize_spreadsheet_tabs(spreadsheet):
     spreadsheet.sheet1.update_title("Animes")
 
-    # Organiza abas antigas criadas por versões anteriores.
     # A versão atual usa apenas: Animes e Resumo.
     try:
         old_stats = spreadsheet.worksheet("Estatisticas")
@@ -856,60 +875,32 @@ def main():
     except gspread.WorksheetNotFound:
         pass
 
-    print(f"Link: {spreadsheet.url}\n")
-    print(f"Verificando a cada {SYNC_INTERVAL // 60} minutos.")
-    print("Horario usado: Brasilia (America/Sao_Paulo).")
-    print("Para parar: botao de stop no Colab.\n")
+# ─────────────────────────────────────────────
+# MAIN — execução única para GitHub Actions
+# ─────────────────────────────────────────────
+
+def main():
+    print("=" * 55)
+    print("  Armário dos Animes  |  GitHub Actions")
+    print("=" * 55)
+
+    print("\nConectando ao Google Sheets...")
+    gc = get_google_client()
+    spreadsheet = open_or_create_spreadsheet(gc)
+    organize_spreadsheet_tabs(spreadsheet)
+
+    print(f"Planilha aberta: {spreadsheet.url}")
+    print("Horário usado: Brasília (America/Sao_Paulo).")
     print("-" * 55)
 
-    last_hash  = None
-    sync_count = 0
+    agora = now_br("%H:%M:%S")
+    print(f"[{agora}] Buscando listas no AniList...")
 
-    try:
-        while True:
-            agora = now_br("%H:%M:%S")
-            print(f"[{agora}] Verificando mudancas...", end=" ", flush=True)
+    run_sync(spreadsheet, verbose=True)
 
-            all_data     = fetch_all_users(verbose=False)
-            current_hash = compute_hash(all_data)
-
-            if current_hash != last_hash:
-                msg = "Primeira execucao." if last_hash is None else "MUDANCA DETECTADA!"
-                print(msg)
-                sync_count += 1
-
-                # rebusca com verbose pra mostrar progresso
-                all_data = fetch_all_users(verbose=True)
-                master, grid = build_master_list(all_data)
-                analytics    = build_analytics(master, grid)
-                now          = now_br("%d/%m/%Y  %H:%M")
-
-                ws_sync = spreadsheet.sheet1
-                try:
-                    ws_stats = spreadsheet.worksheet("Resumo")
-                except gspread.WorksheetNotFound:
-                    ws_stats = spreadsheet.add_worksheet("Resumo", rows=300, cols=15)
-
-                all_reqs = []
-                reqs_sync, _ = write_sync_sheet(ws_sync, master, grid, analytics, now)
-                all_reqs.extend(reqs_sync)
-                reqs_stats = write_stats_sheet(ws_stats, master, grid, analytics)
-                all_reqs.extend(reqs_stats)
-                for i in range(0, len(all_reqs), 500):
-                    spreadsheet.batch_update({"requests": all_reqs[i:i+500]})
-
-                last_hash = current_hash
-                agora2    = now_br("%H:%M:%S")
-                print(f"[{agora2}] Planilha atualizada! (sync #{sync_count})")
-            else:
-                print("Sem mudancas.")
-
-            proxima = next_check_br(SYNC_INTERVAL)
-            print(f"  Proxima verificacao: {proxima}")
-            time.sleep(SYNC_INTERVAL)
-
-    except KeyboardInterrupt:
-        print("\nMonitoramento encerrado manualmente.")
+    agora2 = now_br("%H:%M:%S")
+    print(f"[{agora2}] Planilha atualizada com sucesso!")
 
 
-main()
+if __name__ == "__main__":
+    main()
