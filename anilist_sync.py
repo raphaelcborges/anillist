@@ -83,14 +83,14 @@ STATUS_MAP = {
     "PLANNING":  "Planejando",
 }
 
-# A Jikan pode devolver os status do MyAnimeList com variações de escrita.
-# A função normalize_status_key() remove espaços, hífens e underscores antes da consulta.
+# Status numéricos usados pelo endpoint público do MyAnimeList `load.json`.
+# 1 = Watching, 2 = Completed, 3 = On-Hold, 4 = Dropped, 6 = Plan to Watch.
 MAL_STATUS_MAP = {
-    "watching":    "Assistindo",
-    "completed":   "Assistido",
-    "onhold":      "Pausado",
-    "dropped":     "Dropado",
-    "plantowatch": "Planejando",
+    1: "Assistindo",
+    2: "Assistido",
+    3: "Pausado",
+    4: "Dropado",
+    6: "Planejando",
 }
 
 # Cores RGB 0-1 para fundo das células de status
@@ -237,65 +237,126 @@ def fetch_user_anime_list(username):
     return anime_map
 
 
-def _request_jikan_json(url, retries=4):
-    """Requisição à Jikan com espera simples para 429/5xx."""
+def _request_mal_public_json(url, retries=4):
+    """Consulta o endpoint público `load.json` do MyAnimeList com tentativas simples."""
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "User-Agent": "Mozilla/5.0 (compatible; ArmarioDosAnimes/1.0)",
+        "Referer": "https://myanimelist.net/",
+    }
+
+    last_error = None
+
     for attempt in range(1, retries + 1):
-        r = requests.get(url, headers={"Accept": "application/json"}, timeout=45)
-        if r.status_code == 429:
-            wait = int(r.headers.get("Retry-After", 3))
-            print(f"  Rate limit da Jikan! Aguardando {wait}s...")
-            time.sleep(wait)
-            continue
-        if r.status_code >= 500:
-            wait = min(5 * attempt, 20)
-            print(f"  Jikan retornou {r.status_code}. Tentando novamente em {wait}s...")
-            time.sleep(wait)
-            continue
-        r.raise_for_status()
-        payload = r.json()
-        # Em algumas falhas upstream, a Jikan pode devolver JSON com status >= 400.
-        json_status = payload.get("status") if isinstance(payload, dict) else None
-        if isinstance(json_status, int) and json_status >= 400:
-            wait = min(5 * attempt, 20)
-            print(f"  Jikan retornou status interno {json_status}. Tentando novamente em {wait}s...")
-            time.sleep(wait)
-            continue
-        return payload
-    raise RuntimeError(f"Falha ao consultar a Jikan após {retries} tentativas: {url}")
+        try:
+            r = requests.get(url, headers=headers, timeout=45)
+
+            if r.status_code == 429:
+                wait = int(r.headers.get("Retry-After", min(5 * attempt, 20)))
+                print(f"  MyAnimeList limitou requisições. Aguardando {wait}s...")
+                time.sleep(wait)
+                continue
+
+            if r.status_code >= 500:
+                wait = min(5 * attempt, 20)
+                print(f"  MyAnimeList retornou {r.status_code}. Tentando novamente em {wait}s...")
+                time.sleep(wait)
+                continue
+
+            if r.status_code == 404:
+                raise RuntimeError(
+                    "A lista pública do MyAnimeList não foi encontrada. "
+                    "Confira se o perfil existe e se a lista está pública."
+                )
+
+            if r.status_code == 403:
+                raise RuntimeError(
+                    "O MyAnimeList bloqueou o acesso à lista pública. "
+                    "Tente rodar novamente mais tarde."
+                )
+
+            r.raise_for_status()
+
+            try:
+                payload = r.json()
+            except ValueError as exc:
+                raise RuntimeError(
+                    "O MyAnimeList respondeu com conteúdo que não era JSON."
+                ) from exc
+
+            if not isinstance(payload, list):
+                raise RuntimeError(
+                    "Formato inesperado da resposta do MyAnimeList: "
+                    f"{type(payload).__name__}."
+                )
+
+            return payload
+
+        except (requests.RequestException, RuntimeError) as exc:
+            last_error = exc
+            # Erros explícitos de 403/404 não se resolvem com retry imediato.
+            if isinstance(exc, RuntimeError) and (
+                "não foi encontrada" in str(exc) or "bloqueou" in str(exc)
+            ):
+                raise
+
+            if attempt < retries:
+                wait = min(5 * attempt, 20)
+                print(f"  Falha ao consultar MyAnimeList: {exc}. Tentando novamente em {wait}s...")
+                time.sleep(wait)
+
+    raise RuntimeError(
+        f"Falha ao consultar o MyAnimeList após {retries} tentativas: {last_error}"
+    )
 
 
 def fetch_mal_user_anime_list(username):
-    """Busca uma lista pública do MyAnimeList via Jikan API v4."""
+    """
+    Busca uma lista pública do MyAnimeList pelo endpoint usado pela própria página:
+    /animelist/<username>/load.json?status=7&offset=<offset>
+    """
     anime_map = {}
-    page = 1
+    offset = 0
+    page_size = 300
+
     while True:
-        url = f"{JIKAN_API_URL}/users/{username}/animelist?page={page}"
-        payload = _request_jikan_json(url)
-        items = payload.get("data", []) if isinstance(payload, dict) else []
+        url = (
+            f"https://myanimelist.net/animelist/{username}/load.json"
+            f"?status=7&offset={offset}"
+        )
+        items = _request_mal_public_json(url)
 
         for item in items:
             if not isinstance(item, dict):
                 continue
-            entry = item.get("entry") if isinstance(item.get("entry"), dict) else item
-            mal_id = entry.get("mal_id") or item.get("mal_id")
+
+            mal_id = item.get("anime_id")
             if mal_id is None:
                 continue
-            title = entry.get("title") or item.get("title") or f"MAL:{mal_id}"
-            raw_status = item.get("status") or entry.get("status") or ""
-            status = MAL_STATUS_MAP.get(normalize_status_key(raw_status), "-")
-            aliases = [title]
+
+            title = item.get("anime_title") or f"MAL:{mal_id}"
+            raw_status = item.get("status")
+            try:
+                raw_status = int(raw_status)
+            except (TypeError, ValueError):
+                raw_status = None
+
+            status = MAL_STATUS_MAP.get(raw_status, "-")
+
             anime_map[f"mal:{mal_id}"] = {
                 "title": title,
                 "status": status,
-                "aliases": [a for a in aliases if a],
+                "aliases": [title] if title else [],
                 "source": "MyAnimeList",
             }
 
-        pagination = payload.get("pagination", {}) if isinstance(payload, dict) else {}
-        if not pagination.get("has_next_page", False):
+        # O endpoint retorna até 300 itens por lote.
+        # Se vier menos que isso, chegamos ao fim.
+        if len(items) < page_size:
             break
-        page += 1
-        time.sleep(1.1)  # evita bater rápido demais na API pública
+
+        offset += page_size
+        time.sleep(2.0)  # evita bater rápido demais no MyAnimeList
 
     return anime_map
 
