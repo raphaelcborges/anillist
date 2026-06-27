@@ -1,31 +1,4 @@
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# ARMÁRIO DOS ANIMES — AniList + MyAnimeList -> Google Sheets + GitHub Pages
-# Dashboard melhorado + estatísticas novas — versão sem merge e sem freeze
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#
-# COLAB — rode antes, em células separadas, se precisar:
-#
-# !pip install -q requests gspread google-auth
-#
-# from google.colab import auth
-# auth.authenticate_user()
-# print("Autenticado!")
-#
-# Opcional — anti-desconexão:
-# from IPython.display import display, Javascript
-# display(Javascript("""
-#   function clickConnect() {
-#     try {
-#       document.querySelector("#top-toolbar > colab-connect-button")
-#         .shadowRoot.querySelector("#connect").click();
-#     } catch(e) {}
-#   }
-#   setInterval(clickConnect, 60000);
-# """))
-# print("Keep-alive ativo!")
-#
-# Depois cole/rode este script inteiro.
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 import os
 import time
@@ -42,10 +15,6 @@ from google.auth import default
 from google.oauth2.service_account import Credentials
 
 
-# ─────────────────────────────────────────────
-# CONFIGURAÇÕES GERAIS
-# ─────────────────────────────────────────────
-
 TZ = ZoneInfo("America/Sao_Paulo")
 
 ANILIST_API_URL = "https://graphql.anilist.co"
@@ -57,12 +26,11 @@ SYNC_INTERVAL = 300  # 300 = 5 min
 # True = fica rodando em loop.
 # False = roda uma vez e para.
 AUTO_LOOP = False
-# Se usar GitHub Actions/Render/etc, você pode setar SPREADSHEET_ID.
-# Se deixar vazio, ele abre/cria pelo nome.
+
 SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID", "").strip()
 
 # Arquivo usado pelo GitHub Pages.
-# O site em docs/index.html lê este arquivo.
+
 SITE_DATA_PATH = os.environ.get("SITE_DATA_PATH", "docs/data.json")
 
 
