@@ -1,40 +1,3 @@
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# CÉLULA 1 — Instalar dependências
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
-!pip install -q requests gspread google-auth
-"""
-
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# CÉLULA 2 — Login com sua conta Google
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
-from google.colab import auth
-auth.authenticate_user()
-print("Autenticado!")
-"""
-
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# CÉLULA 3 — Anti-desconexão do Colab
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
-from IPython.display import display, Javascript
-display(Javascript('''
-  function clickConnect() {
-    try {
-      document.querySelector("#top-toolbar > colab-connect-button")
-        .shadowRoot.querySelector("#connect").click();
-    } catch(e) {}
-  }
-  setInterval(clickConnect, 60000);
-'''))
-print("Keep-alive ativo!")
-"""
-
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# CÉLULA 4 — Script principal (cole tudo daqui pra baixo)
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 import os, time, hashlib, json, requests, gspread
 from google.auth import default
 from google.oauth2.service_account import Credentials
@@ -59,16 +22,27 @@ def next_check_br(seconds):
 # ─────────────────────────────────────────────
 
 ANILIST_API_URL  = "https://graphql.anilist.co"
+JIKAN_API_URL    = "https://api.jikan.moe/v4"
 SPREADSHEET_NAME = "planoha animes armário - (python fucking good bro)"
-SYNC_INTERVAL    = 300   # segundos entre verificações (300 = 5 min)
+SYNC_INTERVAL    = 300
 
-USERNAMES = [
+# Usuários do AniList
+ANILIST_USERNAMES = [
     "CianBrz", "BingoRTv", "Dioo", "Gumya",
     "Jotalhos", "niccname", "ViniAxd", "SleepyGT",
     "Cafito",
 ]
 
-STATUS_MAP = {
+# Usuários do MyAnimeList (via Jikan)
+MAL_USERNAMES = [
+    "KakaCrads",
+]
+
+# Lista unificada — usada em toda a lógica de grid/analytics
+USERNAMES = ANILIST_USERNAMES + MAL_USERNAMES
+
+# Status do AniList → padrão interno
+STATUS_MAP_ANILIST = {
     "COMPLETED": "Assistido",
     "DROPPED":   "Dropado",
     "PAUSED":    "Pausado",
@@ -76,7 +50,15 @@ STATUS_MAP = {
     "PLANNING":  "Planejando",
 }
 
-# Cores RGB 0-1 para fundo das células de status
+# Status do MAL (Jikan) → padrão interno
+STATUS_MAP_MAL = {
+    "completed":  "Assistido",
+    "dropped":    "Dropado",
+    "on_hold":    "Pausado",
+    "watching":   "Assistindo",
+    "plan_to_watch": "Planejando",
+}
+
 STATUS_BG = {
     "Assistido":  {"red": 0.204, "green": 0.659, "blue": 0.325},
     "Dropado":    {"red": 0.898, "green": 0.224, "blue": 0.208},
@@ -95,7 +77,6 @@ STATUS_FG = {
     "-":          {"red": 0.60, "green": 0.60, "blue": 0.60},
 }
 
-# Paleta de cores para gráfico de barras de usuário (Assistido/Assistindo/Planejando/Dropado)
 BAR_COLORS = {
     "Assistido":  {"red": 0.204, "green": 0.659, "blue": 0.325},
     "Assistindo": {"red": 0.259, "green": 0.522, "blue": 0.957},
@@ -106,7 +87,7 @@ BAR_COLORS = {
 
 WHITE    = {"red": 1,    "green": 1,    "blue": 1}
 BLACK    = {"red": 0.08, "green": 0.08, "blue": 0.08}
-DARK_HDR = {"red": 0.09, "green": 0.13, "blue": 0.24}   # azul bem escuro
+DARK_HDR = {"red": 0.09, "green": 0.13, "blue": 0.24}
 GRAY_ALT = {"red": 0.97, "green": 0.97, "blue": 0.98}
 GRAY_HDR = {"red": 0.20, "green": 0.20, "blue": 0.22}
 ACCENT   = {"red": 0.16, "green": 0.44, "blue": 0.86}
@@ -115,7 +96,6 @@ GOLD     = {"red": 0.80, "green": 0.60, "blue": 0.00}
 SILVER   = {"red": 0.55, "green": 0.55, "blue": 0.58}
 BRONZE   = {"red": 0.60, "green": 0.36, "blue": 0.17}
 
-# Cores de avatar por usuário (cicladas)
 AVATAR_COLORS = [
     ({"red": 0.18, "green": 0.39, "blue": 0.78}, WHITE),
     ({"red": 0.61, "green": 0.15, "blue": 0.69}, WHITE),
@@ -125,10 +105,13 @@ AVATAR_COLORS = [
     ({"red": 0.76, "green": 0.19, "blue": 0.39}, WHITE),
     ({"red": 0.20, "green": 0.52, "blue": 0.74}, WHITE),
     ({"red": 0.48, "green": 0.35, "blue": 0.72}, WHITE),
+    # cores extras para usuários adicionais
+    ({"red": 0.85, "green": 0.55, "blue": 0.10}, WHITE),
+    ({"red": 0.10, "green": 0.55, "blue": 0.60}, WHITE),
 ]
 
 # ─────────────────────────────────────────────
-# QUERY GRAPHQL
+# QUERY GRAPHQL — ANILIST
 # ─────────────────────────────────────────────
 
 MEDIA_LIST_QUERY = """
@@ -148,10 +131,10 @@ query ($username: String) {
 """
 
 # ─────────────────────────────────────────────
-# ANILIST — busca e estruturação
+# ANILIST — busca
 # ─────────────────────────────────────────────
 
-def fetch_user_anime_list(username):
+def fetch_anilist_user(username):
     r = requests.post(
         ANILIST_API_URL,
         json={"query": MEDIA_LIST_QUERY, "variables": {"username": username}},
@@ -160,13 +143,13 @@ def fetch_user_anime_list(username):
     )
     if r.status_code == 429:
         wait = int(r.headers.get("Retry-After", 60))
-        print(f"  Rate limit! Aguardando {wait}s...")
+        print(f"  Rate limit AniList! Aguardando {wait}s...")
         time.sleep(wait)
-        return fetch_user_anime_list(username)
+        return fetch_anilist_user(username)
     r.raise_for_status()
     data = r.json()
     if "errors" in data:
-        print(f"  Erro para '{username}': {data['errors']}")
+        print(f"  Erro AniList para '{username}': {data['errors']}")
         return {}
     anime_map = {}
     for lst in data["data"]["MediaListCollection"]["lists"]:
@@ -174,19 +157,111 @@ def fetch_user_anime_list(username):
             media = entry["media"]
             mid   = media["id"]
             title = media["title"]["english"] or media["title"]["romaji"] or f"ID:{mid}"
-            anime_map[mid] = {"title": title, "status": STATUS_MAP.get(entry["status"], "-")}
+            anime_map[mid] = {
+                "title":  title,
+                "status": STATUS_MAP_ANILIST.get(entry["status"], "-"),
+            }
+    return anime_map
+
+# ─────────────────────────────────────────────
+# MAL — busca via Jikan (sem autenticação)
+# ─────────────────────────────────────────────
+
+def fetch_mal_user(username):
+    """
+    Busca a lista completa do MAL de um usuário via Jikan v4.
+    A Jikan pagina em blocos de 300 itens; itera até não ter mais páginas.
+    Usa o mal_id como chave, com prefixo 'mal_' para não colidir com IDs do AniList.
+    """
+    anime_map = {}
+    page = 1
+
+    while True:
+        url = f"{JIKAN_API_URL}/users/{username}/animelist"
+        try:
+            r = requests.get(url, params={"page": page}, timeout=30)
+
+            # Jikan tem rate limit de ~3 req/s — aguarda se necessário
+            if r.status_code == 429:
+                print(f"  Rate limit Jikan! Aguardando 10s...")
+                time.sleep(10)
+                continue
+
+            if r.status_code == 404:
+                print(f"  Usuário MAL '{username}' não encontrado.")
+                return {}
+
+            r.raise_for_status()
+            data = r.json()
+
+        except requests.RequestException as e:
+            print(f"  Erro ao buscar MAL '{username}': {e}")
+            return anime_map
+
+        items = data.get("data", [])
+        if not items:
+            break
+
+        for entry in items:
+            node   = entry.get("node") or entry.get("anime", {})
+            mal_id = node.get("mal_id") or entry.get("mal_id")
+            if not mal_id:
+                continue
+
+            # Tenta pegar título em inglês, fallback pro título principal
+            title = (
+                node.get("title_english")
+                or node.get("title")
+                or f"MAL:{mal_id}"
+            )
+
+            raw_status = entry.get("watching_status") or entry.get("status", "")
+            # Jikan v4 retorna status como string ("completed", "watching", etc.)
+            if isinstance(raw_status, int):
+                # fallback para formato numérico legado do MAL
+                _int_map = {1: "watching", 2: "completed", 3: "on_hold", 4: "dropped", 6: "plan_to_watch"}
+                raw_status = _int_map.get(raw_status, "")
+
+            status = STATUS_MAP_MAL.get(raw_status, "-")
+            key = f"mal_{mal_id}"
+            anime_map[key] = {"title": title, "status": status}
+
+        # Verifica se há próxima página
+        pagination = data.get("pagination", {})
+        if not pagination.get("has_next_page", False):
+            break
+
+        page += 1
+        time.sleep(0.5)  # respeita rate limit da Jikan
+
     return anime_map
 
 
+# ─────────────────────────────────────────────
+# BUSCA TODOS OS USUÁRIOS (AniList + MAL)
+# ─────────────────────────────────────────────
+
 def fetch_all_users(verbose=True):
     all_data = {}
-    for u in USERNAMES:
+
+    # AniList
+    for u in ANILIST_USERNAMES:
         if verbose:
-            print(f"  -> {u}...", end=" ", flush=True)
-        all_data[u] = fetch_user_anime_list(u)
+            print(f"  [AniList] -> {u}...", end=" ", flush=True)
+        all_data[u] = fetch_anilist_user(u)
         if verbose:
             print(f"{len(all_data[u])} animes")
         time.sleep(1)
+
+    # MAL via Jikan
+    for u in MAL_USERNAMES:
+        if verbose:
+            print(f"  [MAL]     -> {u}...", end=" ", flush=True)
+        all_data[u] = fetch_mal_user(u)
+        if verbose:
+            print(f"{len(all_data[u])} animes")
+        time.sleep(1)
+
     return all_data
 
 
@@ -235,9 +310,9 @@ def build_analytics(master, grid):
     user_stats = {}
     for u in USERNAMES:
         counts = Counter(grid[mid].get(u, "-") for mid in master)
-        user_stats[u] = {s: counts.get(s, 0) for s in list(STATUS_MAP.values()) + ["-"]}
+        user_stats[u] = {s: counts.get(s, 0) for s in list(STATUS_MAP_ANILIST.values()) + ["-"]}
         user_stats[u]["total"] = sum(
-            user_stats[u].get(s, 0) for s in STATUS_MAP.values()
+            user_stats[u].get(s, 0) for s in STATUS_MAP_ANILIST.values()
         )
 
     most_watched_user = max(USERNAMES, key=lambda u: user_stats[u]["Assistido"])
@@ -245,15 +320,15 @@ def build_analytics(master, grid):
     biggest_list_user = max(USERNAMES, key=lambda u: user_stats[u]["total"])
 
     return {
-        "top_watched":       top_watched,
-        "least_watched":     least_watched,
-        "user_stats":        user_stats,
-        "most_watched_user": most_watched_user,
-        "most_dropped_user": most_dropped_user,
-        "biggest_list_user": biggest_list_user,
-        "watched_count":     watched_count,
+        "top_watched":        top_watched,
+        "least_watched":      least_watched,
+        "user_stats":         user_stats,
+        "most_watched_user":  most_watched_user,
+        "most_dropped_user":  most_dropped_user,
+        "biggest_list_user":  biggest_list_user,
+        "watched_count":      watched_count,
         "all_watched_by_all": all_watched_by_all,
-        "total_unique":      len(master),
+        "total_unique":       len(master),
     }
 
 # ─────────────────────────────────────────────
@@ -330,9 +405,7 @@ def col_width(sid, c1, c2, px):
     }}
 
 def unmerge_all(sid):
-    return {"unmergeCells": {
-        "range": {"sheetId": sid}
-    }}
+    return {"unmergeCells": {"range": {"sheetId": sid}}}
 
 def merge_cells(sid, r1, r2, c1, c2):
     return {"mergeCells": {
@@ -350,12 +423,6 @@ def freeze(sid, rows=1, cols=0):
         "fields": "gridProperties.frozenRowCount,gridProperties.frozenColumnCount",
     }}
 
-def auto_resize(sid, c1, c2):
-    return {"autoResizeDimensions": {
-        "dimensions": {"sheetId": sid, "dimension": "COLUMNS",
-                       "startIndex": c1, "endIndex": c2}
-    }}
-
 # ─────────────────────────────────────────────
 # ABA 1 — SYNC
 # ─────────────────────────────────────────────
@@ -366,11 +433,6 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
     sorted_ids = sorted(master, key=lambda m: master[m].lower())
     n   = len(sorted_ids)
 
-    # Layout da aba principal:
-    # linha 0 = título bonitinho
-    # linha 1 = legenda de status + data de atualização
-    # linha 2 = cabeçalho da tabela
-    # linha 3+ = dados
     TITLE_ROW  = 0
     LEGEND_ROW = 1
     HEADER_ROW = 2
@@ -382,16 +444,9 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
     title_row = ["ARMÁRIO DOS ANIMES"] + [""] * (total_cols - 1)
     rows.append(title_row)
 
-    # A legenda agora usa todas as colunas visíveis e não fica com textos sumidos.
     legend_row = [
-        "LEGENDA",
-        "Assistido",
-        "Assistindo",
-        "Planejando",
-        "Pausado",
-        "Dropado",
-        "Sem registro",
-        "",
+        "LEGENDA", "Assistido", "Assistindo", "Planejando",
+        "Pausado", "Dropado", "Sem registro", "",
         f"Atualizado: {last_updated}",
     ]
     legend_row = legend_row[:total_cols]
@@ -409,14 +464,9 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
 
     reqs = []
     reqs.append(unmerge_all(sid))
-    # IMPORTANTE: remove congelamento de colunas ANTES de qualquer merge.
-    # O Google Sheets dá erro se tentar mesclar coluna congelada com não congelada.
     reqs.append(freeze(sid, rows=0, cols=0))
-
-    # Limpa filtro antigo, se existir, para recriar sem conflito.
     reqs.append({"clearBasicFilter": {"sheetId": sid}})
 
-    # Fundo base
     reqs.append(repeat_cell(sid, 0, len(rows), 0, total_cols,
         cell_fmt(WHITE, BLACK, size=10, align="CENTER", wrap="CLIP")))
 
@@ -433,61 +483,51 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
         cell_fmt(DARK_HDR, WHITE, bold=True, size=9, align="LEFT", wrap="CLIP")))
 
     legend_items = [
-        (1, "Assistido"),
-        (2, "Assistindo"),
-        (3, "Planejando"),
-        (4, "Pausado"),
-        (5, "Dropado"),
-        (6, "-"),
+        (1, "Assistido"), (2, "Assistindo"), (3, "Planejando"),
+        (4, "Pausado"),   (5, "Dropado"),    (6, "-"),
     ]
     for col, st in legend_items:
         if col < total_cols:
             reqs.append(repeat_cell(sid, LEGEND_ROW, LEGEND_ROW + 1, col, col + 1,
                 cell_fmt(STATUS_BG[st], STATUS_FG[st], bold=True, size=9, align="CENTER", wrap="CLIP")))
 
-    # Célula de atualização, discreta e alinhada à direita.
     if total_cols >= 9:
         reqs.append(repeat_cell(sid, LEGEND_ROW, LEGEND_ROW + 1, 7, total_cols,
             cell_fmt(GRAY_HDR, {"red": 0.86, "green": 0.86, "blue": 0.90},
                      bold=False, size=9, align="RIGHT", wrap="CLIP")))
     reqs.append(row_height(sid, LEGEND_ROW, LEGEND_ROW + 1, 28))
 
-    # Cabeçalho principal
+    # Cabeçalho
     reqs.append(repeat_cell(sid, HEADER_ROW, HEADER_ROW + 1, 0, total_cols,
         cell_fmt(DARK_HDR, WHITE, bold=True, size=10, align="CENTER", wrap="CLIP")))
     reqs.append(repeat_cell(sid, HEADER_ROW, HEADER_ROW + 1, 0, 1,
         cell_fmt(DARK_HDR, WHITE, bold=True, size=10, align="LEFT", wrap="CLIP")))
 
-    for i, (bg, fg) in enumerate(AVATAR_COLORS[:N]):
+    # Cores de avatar — cicla se tiver mais usuários do que cores definidas
+    for i in range(N):
+        bg, fg = AVATAR_COLORS[i % len(AVATAR_COLORS)]
         reqs.append(repeat_cell(sid, HEADER_ROW, HEADER_ROW + 1, i + 1, i + 2,
             cell_fmt(bg, fg, bold=True, size=10, align="CENTER", wrap="CLIP")))
 
     reqs.append(row_height(sid, HEADER_ROW, HEADER_ROW + 1, 34))
 
-    # Linhas de dados
+    # Dados
     for i, mid in enumerate(sorted_ids):
-        r = DATA_START + i
+        r  = DATA_START + i
         bg = GRAY_ALT if i % 2 == 0 else WHITE
-
         reqs.append(repeat_cell(sid, r, r + 1, 0, 1,
             cell_fmt(bg, BLACK, size=10, align="LEFT", wrap="CLIP")))
-
         for col_i, u in enumerate(USERNAMES):
             st = grid[mid].get(u, "-")
             reqs.append(repeat_cell(sid, r, r + 1, col_i + 1, col_i + 2,
                 cell_fmt(
                     STATUS_BG.get(st, STATUS_BG["-"]),
                     STATUS_FG.get(st, STATUS_FG["-"]),
-                    bold=(st != "-"),
-                    size=10,
-                    align="CENTER",
-                    wrap="CLIP"
-                )
-            ))
+                    bold=(st != "-"), size=10, align="CENTER", wrap="CLIP"
+                )))
 
     reqs.append(row_height(sid, DATA_START, DATA_START + n, 24))
 
-    # Bordas e congelamento
     reqs.append(outer_border(sid, 0, len(rows), 0, total_cols))
     reqs.append(border_req(sid, LEGEND_ROW, HEADER_ROW + 1, 0, total_cols,
                            color={"red": 0.58, "green": 0.62, "blue": 0.70}, inner=True))
@@ -495,7 +535,6 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
                            color={"red": 0.82, "green": 0.84, "blue": 0.88}, inner=True))
     reqs.append(freeze(sid, rows=DATA_START, cols=0))
 
-    # Filtro no cabeçalho da tabela, sem pegar a legenda.
     reqs.append({
         "setBasicFilter": {
             "filter": {
@@ -504,13 +543,12 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
                     "startRowIndex": HEADER_ROW,
                     "endRowIndex": len(rows),
                     "startColumnIndex": 0,
-                    "endColumnIndex": total_cols
+                    "endColumnIndex": total_cols,
                 }
             }
         }
     })
 
-    # Larguras
     reqs.append(col_width(sid, 0, 1, 390))
     for i in range(1, total_cols):
         reqs.append(col_width(sid, i, i + 1, 128))
@@ -540,14 +578,11 @@ def write_stats_sheet(ws, master, grid, analytics):
     def blank_row():
         return [""] * NCOLS
 
-    # Título
     row = blank_row()
     row[0] = "RESUMO DO GRUPO"
     data.append(row)
     data.append(blank_row())
 
-    # Cards principais — sem seção duplicada de destaques.
-    # O card de drops aparece uma vez aqui e também existe a coluna Dropado no ranking detalhado.
     row = blank_row()
     row[0] = "Total de animes únicos"
     row[3] = "Assistidos por todos"
@@ -566,7 +601,6 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     data.append(blank_row())
 
-    # Top 10
     row = blank_row()
     row[0] = "TOP 10 — ANIMES MAIS ASSISTIDOS"
     data.append(row)
@@ -582,8 +616,8 @@ def write_stats_sheet(ws, master, grid, analytics):
     medals = [f"{i}." for i in range(1, 11)]
     for i, (mid, count) in enumerate(top):
         row = blank_row()
-        pct  = f"{round(count / N * 100)}%"
-        pips = "●" * count + "○" * (N - count)
+        pct      = f"{round(count / N * 100)}%"
+        pips     = "●" * count + "○" * (N - count)
         watchers = [u for u in USERNAMES if grid[mid].get(u) == "Assistido"]
         row[0] = f"{medals[i]} {master[mid]}"
         row[1] = pips
@@ -594,7 +628,6 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     data.append(blank_row())
 
-    # Menos vistos
     row = blank_row()
     row[0] = "ANIMES MENOS VISTOS"
     data.append(row)
@@ -615,7 +648,6 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     data.append(blank_row())
 
-    # Ranking usuários
     row = blank_row()
     row[0] = "RANKING POR USUÁRIO"
     data.append(row)
@@ -648,21 +680,17 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     reqs = []
     reqs.append(unmerge_all(sid))
-    # IMPORTANTE: remove congelamento de colunas ANTES de qualquer merge.
     reqs.append(freeze(sid, rows=0, cols=0))
     nrows = len(data)
 
-    # Fundo base
     reqs.append(repeat_cell(sid, 0, nrows, 0, NCOLS,
         cell_fmt(WHITE, BLACK, size=10, align="LEFT", wrap="CLIP")))
 
-    # Título
     reqs.append(merge_cells(sid, 0, 1, 0, NCOLS))
     reqs.append(repeat_cell(sid, 0, 1, 0, NCOLS,
         cell_fmt(DARK_HDR, WHITE, bold=True, size=14, align="LEFT", wrap="CLIP")))
     reqs.append(row_height(sid, 0, 1, 38))
 
-    # Cards principais
     card_spans = [(0, 3), (3, 6), (6, 9), (9, 12), (12, 15)]
     card_bgs = [
         LIGHT_BLUE,
@@ -691,23 +719,21 @@ def write_stats_sheet(ws, master, grid, analytics):
     reqs.append(row_height(sid, 2, 3, 22))
     reqs.append(row_height(sid, 3, 4, 34))
 
-    # Índices dinâmicos — agora sem a seção duplicada de destaques
-    top_hdr = 5
-    top_sub = 6
+    top_hdr   = 5
+    top_sub   = 6
     top_start = 7
-    top_end = top_start + len(top)
+    top_end   = top_start + len(top)
 
-    niche_hdr = top_end + 1
-    niche_sub = niche_hdr + 1
+    niche_hdr   = top_end + 1
+    niche_sub   = niche_hdr + 1
     niche_start = niche_sub + 1
-    niche_end = niche_start + len(least)
+    niche_end   = niche_start + len(least)
 
-    user_hdr = niche_end + 1
-    user_sub = user_hdr + 1
+    user_hdr   = niche_end + 1
+    user_sub   = user_hdr + 1
     user_start = user_sub + 1
-    user_end = user_start + len(sorted_users)
+    user_end   = user_start + len(sorted_users)
 
-    # Top 10
     reqs.append(merge_cells(sid, top_hdr, top_hdr + 1, 0, NCOLS))
     reqs.append(repeat_cell(sid, top_hdr, top_hdr + 1, 0, NCOLS,
         cell_fmt(DARK_HDR, WHITE, bold=True, size=11, align="LEFT", wrap="CLIP")))
@@ -715,7 +741,7 @@ def write_stats_sheet(ws, master, grid, analytics):
         cell_fmt(GRAY_HDR, WHITE, bold=True, size=10, align="CENTER", wrap="CLIP")))
 
     for i in range(len(top)):
-        r = top_start + i
+        r  = top_start + i
         bg = GRAY_ALT if i % 2 == 0 else WHITE
         reqs.append(repeat_cell(sid, r, r + 1, 0, 5,
             cell_fmt(bg, BLACK, size=10, align="LEFT", wrap="CLIP")))
@@ -727,7 +753,6 @@ def write_stats_sheet(ws, master, grid, analytics):
             cell_fmt(bg, {"red": 0.25, "green": 0.25, "blue": 0.28}, size=9, align="LEFT", wrap="CLIP")))
     reqs.append(outer_border(sid, top_hdr, top_end, 0, 5))
 
-    # Menos vistos
     reqs.append(merge_cells(sid, niche_hdr, niche_hdr + 1, 0, NCOLS))
     reqs.append(repeat_cell(sid, niche_hdr, niche_hdr + 1, 0, NCOLS,
         cell_fmt(DARK_HDR, WHITE, bold=True, size=11, align="LEFT", wrap="CLIP")))
@@ -735,7 +760,7 @@ def write_stats_sheet(ws, master, grid, analytics):
         cell_fmt(GRAY_HDR, WHITE, bold=True, size=10, align="CENTER", wrap="CLIP")))
 
     for i in range(len(least)):
-        r = niche_start + i
+        r  = niche_start + i
         bg = GRAY_ALT if i % 2 == 0 else WHITE
         reqs.append(repeat_cell(sid, r, r + 1, 0, 3,
             cell_fmt(bg, BLACK, size=10, align="LEFT", wrap="CLIP")))
@@ -743,7 +768,6 @@ def write_stats_sheet(ws, master, grid, analytics):
             cell_fmt(bg, {"red": 0.6, "green": 0.15, "blue": 0.69}, bold=True, size=10, align="CENTER", wrap="CLIP")))
     reqs.append(outer_border(sid, niche_hdr, niche_end, 0, 3))
 
-    # Ranking usuários
     reqs.append(merge_cells(sid, user_hdr, user_hdr + 1, 0, NCOLS))
     reqs.append(repeat_cell(sid, user_hdr, user_hdr + 1, 0, NCOLS,
         cell_fmt(DARK_HDR, WHITE, bold=True, size=11, align="LEFT", wrap="CLIP")))
@@ -751,18 +775,18 @@ def write_stats_sheet(ws, master, grid, analytics):
         cell_fmt(GRAY_HDR, WHITE, bold=True, size=10, align="CENTER", wrap="CLIP")))
 
     reqs.append(repeat_cell(sid, user_sub, user_sub + 1, 1, 2,
-        cell_fmt(STATUS_BG["Assistido"], STATUS_FG["Assistido"], bold=True, size=10, align="CENTER")))
+        cell_fmt(STATUS_BG["Assistido"],  STATUS_FG["Assistido"],  bold=True, size=10, align="CENTER")))
     reqs.append(repeat_cell(sid, user_sub, user_sub + 1, 2, 3,
         cell_fmt(STATUS_BG["Assistindo"], STATUS_FG["Assistindo"], bold=True, size=10, align="CENTER")))
     reqs.append(repeat_cell(sid, user_sub, user_sub + 1, 3, 4,
         cell_fmt(STATUS_BG["Planejando"], STATUS_FG["Planejando"], bold=True, size=10, align="CENTER")))
     reqs.append(repeat_cell(sid, user_sub, user_sub + 1, 4, 5,
-        cell_fmt(STATUS_BG["Dropado"], STATUS_FG["Dropado"], bold=True, size=10, align="CENTER")))
+        cell_fmt(STATUS_BG["Dropado"],    STATUS_FG["Dropado"],    bold=True, size=10, align="CENTER")))
     reqs.append(repeat_cell(sid, user_sub, user_sub + 1, 5, 6,
-        cell_fmt(STATUS_BG["Pausado"], STATUS_FG["Pausado"], bold=True, size=10, align="CENTER")))
+        cell_fmt(STATUS_BG["Pausado"],    STATUS_FG["Pausado"],    bold=True, size=10, align="CENTER")))
 
     for i in range(len(sorted_users)):
-        r = user_start + i
+        r  = user_start + i
         bg = GRAY_ALT if i % 2 == 0 else WHITE
         reqs.append(repeat_cell(sid, r, r + 1, 0, 7,
             cell_fmt(bg, BLACK, size=10, align="CENTER", wrap="CLIP")))
@@ -770,12 +794,10 @@ def write_stats_sheet(ws, master, grid, analytics):
             cell_fmt(bg, BLACK, bold=True, size=10, align="LEFT", wrap="CLIP")))
     reqs.append(outer_border(sid, user_hdr, user_end, 0, 7))
 
-    # Alturas
-    reqs.append(row_height(sid, top_sub, top_end, 24))
+    reqs.append(row_height(sid, top_sub,   top_end,   24))
     reqs.append(row_height(sid, niche_sub, niche_end, 24))
-    reqs.append(row_height(sid, user_sub, user_end, 24))
+    reqs.append(row_height(sid, user_sub,  user_end,  24))
 
-    # Larguras
     reqs.append(col_width(sid, 0, 1, 360))
     reqs.append(col_width(sid, 1, 2, 160))
     reqs.append(col_width(sid, 2, 3, 110))
@@ -789,11 +811,11 @@ def write_stats_sheet(ws, master, grid, analytics):
     return reqs
 
 # ─────────────────────────────────────────────
-# SYNC COMPLETO (uma rodada)
+# SYNC COMPLETO
 # ─────────────────────────────────────────────
 
 def run_sync(spreadsheet, verbose=True):
-    now = now_br("%d/%m/%Y  %H:%M")
+    now      = now_br("%d/%m/%Y  %H:%M")
     all_data = fetch_all_users(verbose=verbose)
     master, grid = build_master_list(all_data)
     analytics    = build_analytics(master, grid)
@@ -825,32 +847,23 @@ SCOPES = [
 ]
 
 def get_google_client():
-    """
-    No GitHub Actions, usa o secret GOOGLE_SERVICE_ACCOUNT_JSON.
-    No Colab/local, se o secret não existir, tenta usar as credenciais padrão.
-    """
     service_account_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
-
     if service_account_json:
         try:
-            info = json.loads(service_account_json)
+            info  = json.loads(service_account_json)
             creds = Credentials.from_service_account_info(info, scopes=SCOPES)
             return gspread.authorize(creds)
         except json.JSONDecodeError as e:
             raise RuntimeError(
-                "O secret GOOGLE_SERVICE_ACCOUNT_JSON não parece ser um JSON válido. "
-                "Cole o conteúdo inteiro do arquivo .json da conta de serviço."
+                "O secret GOOGLE_SERVICE_ACCOUNT_JSON não é um JSON válido."
             ) from e
-
     creds, _ = default(scopes=SCOPES)
     return gspread.authorize(creds)
 
 def open_or_create_spreadsheet(gc):
     spreadsheet_id = os.environ.get("SPREADSHEET_ID", "").strip()
-
     if spreadsheet_id:
         return gc.open_by_key(spreadsheet_id)
-
     try:
         return gc.open(SPREADSHEET_NAME)
     except gspread.SpreadsheetNotFound:
@@ -858,8 +871,6 @@ def open_or_create_spreadsheet(gc):
 
 def organize_spreadsheet_tabs(spreadsheet):
     spreadsheet.sheet1.update_title("Animes")
-
-    # A versão atual usa apenas: Animes e Resumo.
     try:
         old_stats = spreadsheet.worksheet("Estatisticas")
         try:
@@ -869,7 +880,6 @@ def organize_spreadsheet_tabs(spreadsheet):
             old_stats.update_title("Resumo")
     except gspread.WorksheetNotFound:
         pass
-
     try:
         old_highlights = spreadsheet.worksheet("Destaques")
         spreadsheet.del_worksheet(old_highlights)
@@ -877,25 +887,26 @@ def organize_spreadsheet_tabs(spreadsheet):
         pass
 
 # ─────────────────────────────────────────────
-# MAIN — execução única para GitHub Actions
+# MAIN
 # ─────────────────────────────────────────────
 
 def main():
     print("=" * 55)
     print("  Armário dos Animes  |  GitHub Actions")
+    print(f"  AniList: {len(ANILIST_USERNAMES)} usuários | MAL: {len(MAL_USERNAMES)} usuário(s)")
     print("=" * 55)
 
     print("\nConectando ao Google Sheets...")
-    gc = get_google_client()
+    gc          = get_google_client()
     spreadsheet = open_or_create_spreadsheet(gc)
     organize_spreadsheet_tabs(spreadsheet)
 
     print(f"Planilha aberta: {spreadsheet.url}")
-    print("Horário usado: Brasília (America/Sao_Paulo).")
+    print("Horário: Brasília (America/Sao_Paulo)")
     print("-" * 55)
 
     agora = now_br("%H:%M:%S")
-    print(f"[{agora}] Buscando listas no AniList...")
+    print(f"[{agora}] Buscando listas...")
 
     run_sync(spreadsheet, verbose=True)
 
