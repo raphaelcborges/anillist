@@ -35,7 +35,7 @@ print("Keep-alive ativo!")
 # CÉLULA 4 — Script principal (cole tudo daqui pra baixo)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-import os, time, hashlib, json, re, unicodedata, requests, gspread
+import os, time, hashlib, json, requests, gspread
 from google.auth import default
 from google.oauth2.service_account import Credentials
 from collections import Counter
@@ -59,21 +59,13 @@ def next_check_br(seconds):
 # ─────────────────────────────────────────────
 
 ANILIST_API_URL  = "https://graphql.anilist.co"
-JIKAN_API_URL    = "https://api.jikan.moe/v4"
 SPREADSHEET_NAME = "planoha animes armário - (python fucking good bro)"
-SYNC_INTERVAL    = 300   # mantido apenas para compatibilidade com versões antigas
+SYNC_INTERVAL    = 300   # segundos entre verificações (300 = 5 min)
 
-ANILIST_USERNAMES = [
+USERNAMES = [
     "CianBrz", "BingoRTv", "Dioo", "Gumya",
     "Jotalhos", "niccname", "ViniAxd", "SleepyGT",
 ]
-
-MAL_USERNAMES = [
-    "KakaCrads",
-]
-
-# Lista final que aparece nas colunas da planilha e nas estatísticas.
-USERNAMES = ANILIST_USERNAMES + MAL_USERNAMES
 
 STATUS_MAP = {
     "COMPLETED": "Assistido",
@@ -81,16 +73,6 @@ STATUS_MAP = {
     "PAUSED":    "Pausado",
     "CURRENT":   "Assistindo",
     "PLANNING":  "Planejando",
-}
-
-# Status numéricos usados pelo endpoint público do MyAnimeList `load.json`.
-# 1 = Watching, 2 = Completed, 3 = On-Hold, 4 = Dropped, 6 = Plan to Watch.
-MAL_STATUS_MAP = {
-    1: "Assistindo",
-    2: "Assistido",
-    3: "Pausado",
-    4: "Dropado",
-    6: "Planejando",
 }
 
 # Cores RGB 0-1 para fundo das células de status
@@ -142,7 +124,6 @@ AVATAR_COLORS = [
     ({"red": 0.76, "green": 0.19, "blue": 0.39}, WHITE),
     ({"red": 0.20, "green": 0.52, "blue": 0.74}, WHITE),
     ({"red": 0.48, "green": 0.35, "blue": 0.72}, WHITE),
-    ({"red": 0.45, "green": 0.24, "blue": 0.35}, WHITE),
 ]
 
 # ─────────────────────────────────────────────
@@ -157,7 +138,7 @@ query ($username: String) {
         status
         media {
           id
-          title { romaji english native }
+          title { romaji english }
         }
       }
     }
@@ -166,34 +147,10 @@ query ($username: String) {
 """
 
 # ─────────────────────────────────────────────
-# ANI LIST + MYANIMELIST — busca e estruturação
+# ANILIST — busca e estruturação
 # ─────────────────────────────────────────────
 
-def normalize_text(value):
-    """Normaliza títulos para tentar unir AniList e MyAnimeList."""
-    value = str(value or "").strip().lower()
-    value = unicodedata.normalize("NFKD", value)
-    value = "".join(ch for ch in value if not unicodedata.combining(ch))
-    value = value.replace("&", " and ")
-    value = re.sub(r"[^a-z0-9]+", "", value)
-    return value
-
-
-def normalize_status_key(value):
-    return re.sub(r"[^a-z]", "", str(value or "").strip().lower())
-
-
-def choose_display_title(title_obj, fallback):
-    return (
-        title_obj.get("english")
-        or title_obj.get("romaji")
-        or title_obj.get("native")
-        or fallback
-    )
-
-
 def fetch_user_anime_list(username):
-    """Busca uma lista de animes no AniList."""
     r = requests.post(
         ANILIST_API_URL,
         json={"query": MEDIA_LIST_QUERY, "variables": {"username": username}},
@@ -202,240 +159,53 @@ def fetch_user_anime_list(username):
     )
     if r.status_code == 429:
         wait = int(r.headers.get("Retry-After", 60))
-        print(f"  Rate limit do AniList! Aguardando {wait}s...")
+        print(f"  Rate limit! Aguardando {wait}s...")
         time.sleep(wait)
         return fetch_user_anime_list(username)
     r.raise_for_status()
     data = r.json()
     if "errors" in data:
-        print(f"  Erro para '{username}' no AniList: {data['errors']}")
+        print(f"  Erro para '{username}': {data['errors']}")
         return {}
-
     anime_map = {}
-    collection = data.get("data", {}).get("MediaListCollection") or {}
-    for lst in collection.get("lists", []):
-        for entry in lst.get("entries", []):
-            media = entry.get("media") or {}
-            mid   = media.get("id")
-            if mid is None:
-                continue
-            title_obj = media.get("title") or {}
-            fallback  = f"AniList:{mid}"
-            title     = choose_display_title(title_obj, fallback)
-            aliases   = [
-                title,
-                title_obj.get("english"),
-                title_obj.get("romaji"),
-                title_obj.get("native"),
-            ]
-            anime_map[f"anilist:{mid}"] = {
-                "title": title,
-                "status": STATUS_MAP.get(entry.get("status"), "-"),
-                "aliases": [a for a in aliases if a],
-                "source": "AniList",
-            }
-    return anime_map
-
-
-def _request_mal_public_json(url, retries=4):
-    """Consulta o endpoint público `load.json` do MyAnimeList com tentativas simples."""
-    headers = {
-        "Accept": "application/json, text/plain, */*",
-        "User-Agent": "Mozilla/5.0 (compatible; ArmarioDosAnimes/1.0)",
-        "Referer": "https://myanimelist.net/",
-    }
-
-    last_error = None
-
-    for attempt in range(1, retries + 1):
-        try:
-            r = requests.get(url, headers=headers, timeout=45)
-
-            if r.status_code == 429:
-                wait = int(r.headers.get("Retry-After", min(5 * attempt, 20)))
-                print(f"  MyAnimeList limitou requisições. Aguardando {wait}s...")
-                time.sleep(wait)
-                continue
-
-            if r.status_code >= 500:
-                wait = min(5 * attempt, 20)
-                print(f"  MyAnimeList retornou {r.status_code}. Tentando novamente em {wait}s...")
-                time.sleep(wait)
-                continue
-
-            if r.status_code == 404:
-                raise RuntimeError(
-                    "A lista pública do MyAnimeList não foi encontrada. "
-                    "Confira se o perfil existe e se a lista está pública."
-                )
-
-            if r.status_code == 403:
-                raise RuntimeError(
-                    "O MyAnimeList bloqueou o acesso à lista pública. "
-                    "Tente rodar novamente mais tarde."
-                )
-
-            r.raise_for_status()
-
-            try:
-                payload = r.json()
-            except ValueError as exc:
-                raise RuntimeError(
-                    "O MyAnimeList respondeu com conteúdo que não era JSON."
-                ) from exc
-
-            if not isinstance(payload, list):
-                raise RuntimeError(
-                    "Formato inesperado da resposta do MyAnimeList: "
-                    f"{type(payload).__name__}."
-                )
-
-            return payload
-
-        except (requests.RequestException, RuntimeError) as exc:
-            last_error = exc
-            # Erros explícitos de 403/404 não se resolvem com retry imediato.
-            if isinstance(exc, RuntimeError) and (
-                "não foi encontrada" in str(exc) or "bloqueou" in str(exc)
-            ):
-                raise
-
-            if attempt < retries:
-                wait = min(5 * attempt, 20)
-                print(f"  Falha ao consultar MyAnimeList: {exc}. Tentando novamente em {wait}s...")
-                time.sleep(wait)
-
-    raise RuntimeError(
-        f"Falha ao consultar o MyAnimeList após {retries} tentativas: {last_error}"
-    )
-
-
-def fetch_mal_user_anime_list(username):
-    """
-    Busca uma lista pública do MyAnimeList pelo endpoint usado pela própria página:
-    /animelist/<username>/load.json?status=7&offset=<offset>
-    """
-    anime_map = {}
-    offset = 0
-    page_size = 300
-
-    while True:
-        url = (
-            f"https://myanimelist.net/animelist/{username}/load.json"
-            f"?status=7&offset={offset}"
-        )
-        items = _request_mal_public_json(url)
-
-        for item in items:
-            if not isinstance(item, dict):
-                continue
-
-            mal_id = item.get("anime_id")
-            if mal_id is None:
-                continue
-
-            title = item.get("anime_title") or f"MAL:{mal_id}"
-            raw_status = item.get("status")
-            try:
-                raw_status = int(raw_status)
-            except (TypeError, ValueError):
-                raw_status = None
-
-            status = MAL_STATUS_MAP.get(raw_status, "-")
-
-            anime_map[f"mal:{mal_id}"] = {
-                "title": title,
-                "status": status,
-                "aliases": [title] if title else [],
-                "source": "MyAnimeList",
-            }
-
-        # O endpoint retorna até 300 itens por lote.
-        # Se vier menos que isso, chegamos ao fim.
-        if len(items) < page_size:
-            break
-
-        offset += page_size
-        time.sleep(2.0)  # evita bater rápido demais no MyAnimeList
-
+    for lst in data["data"]["MediaListCollection"]["lists"]:
+        for entry in lst["entries"]:
+            media = entry["media"]
+            mid   = media["id"]
+            title = media["title"]["english"] or media["title"]["romaji"] or f"ID:{mid}"
+            anime_map[mid] = {"title": title, "status": STATUS_MAP.get(entry["status"], "-")}
     return anime_map
 
 
 def fetch_all_users(verbose=True):
     all_data = {}
-
-    for u in ANILIST_USERNAMES:
+    for u in USERNAMES:
         if verbose:
-            print(f"  -> {u} [AniList]...", end=" ", flush=True)
+            print(f"  -> {u}...", end=" ", flush=True)
         all_data[u] = fetch_user_anime_list(u)
         if verbose:
             print(f"{len(all_data[u])} animes")
         time.sleep(1)
-
-    for u in MAL_USERNAMES:
-        if verbose:
-            print(f"  -> {u} [MyAnimeList]...", end=" ", flush=True)
-        all_data[u] = fetch_mal_user_anime_list(u)
-        if verbose:
-            print(f"{len(all_data[u])} animes")
-        time.sleep(1)
-
     return all_data
 
 
 def build_master_list(all_data):
-    """
-    Monta uma lista única.
-    - AniList vira a base principal.
-    - Entradas do MyAnimeList tentam encaixar em um anime já existente pelo título normalizado.
-    - Se não houver correspondência, o anime do MAL entra como novo item.
-    """
     master, grid = {}, {}
-    alias_to_key = {}
-
-    # 1) Insere primeiro tudo que veio do AniList.
-    for u in ANILIST_USERNAMES:
-        for key, info in all_data.get(u, {}).items():
-            if key not in master:
-                master[key] = info["title"]
-                grid[key] = {}
-            grid[key][u] = info["status"]
-            for alias in info.get("aliases", [info.get("title")]):
-                norm = normalize_text(alias)
-                if norm:
-                    alias_to_key.setdefault(norm, key)
-
-    # 2) Insere MyAnimeList tentando casar pelo nome.
-    for u in MAL_USERNAMES:
-        for mal_key, info in all_data.get(u, {}).items():
-            matched_key = None
-            for alias in info.get("aliases", [info.get("title")]):
-                norm = normalize_text(alias)
-                if norm and norm in alias_to_key:
-                    matched_key = alias_to_key[norm]
-                    break
-
-            final_key = matched_key or mal_key
-            if final_key not in master:
-                master[final_key] = info["title"]
-                grid[final_key] = {}
-                for alias in info.get("aliases", [info.get("title")]):
-                    norm = normalize_text(alias)
-                    if norm:
-                        alias_to_key.setdefault(norm, final_key)
-            grid[final_key][u] = info["status"]
-
-    # 3) Completa os vazios da grade.
-    for key in grid:
+    for u, anime_map in all_data.items():
+        for mid, info in anime_map.items():
+            if mid not in master:
+                master[mid] = info["title"]
+                grid[mid]   = {}
+            grid[mid][u] = info["status"]
+    for mid in grid:
         for u in USERNAMES:
-            grid[key].setdefault(u, "-")
-
+            grid[mid].setdefault(u, "-")
     return master, grid
 
 
 def compute_hash(all_data):
     snap = {
-        u: sorted([(str(mid), info["status"]) for mid, info in am.items()], key=lambda x: x[0])
+        u: sorted([(mid, info["status"]) for mid, info in am.items()], key=lambda x: x[0])
         for u, am in sorted(all_data.items())
     }
     return hashlib.md5(json.dumps(snap, sort_keys=True).encode()).hexdigest()
