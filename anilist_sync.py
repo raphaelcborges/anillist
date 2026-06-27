@@ -491,7 +491,7 @@ def build_analytics(master, grid):
         key=lambda x: (-x[1], master[x[0]].lower()),
     )[:10]
 
-    hidden_gems = sorted(
+    low_seen_animes = sorted(
         [(mid, c) for mid, c in watched_count.items() if 0 < c <= 2],
         key=lambda x: (x[1], master[x[0]].lower()),
     )[:10]
@@ -516,18 +516,18 @@ def build_analytics(master, grid):
         total = user_stats[u]["total"]
         watched = user_stats[u]["Assistido"]
 
-        user_stats[u]["completion_rate"] = round((watched / total) * 100, 1) if total else 0
-        user_stats[u]["backlog"] = user_stats[u]["Planejando"] + user_stats[u]["Pausado"]
+        user_stats[u]["percent_completed"] = round((watched / total) * 100, 1) if total else 0
+        user_stats[u]["to_watch"] = user_stats[u]["Planejando"] + user_stats[u]["Pausado"]
 
-    # Exclusivos = animes que só aquele usuário assistiu
-    exclusive_watched = {}
+    # Únicos = animes que só aquele usuário assistiu
+    unique_watched = {}
     for u in USERNAMES:
-        exclusive_watched[u] = sum(
+        unique_watched[u] = sum(
             1 for mid in master
             if grid[mid].get(u) == "Assistido"
             and watched_count[mid] == 1
         )
-        user_stats[u]["exclusive"] = exclusive_watched[u]
+        user_stats[u]["unique_watched_count"] = unique_watched[u]
 
     # Pares mais compatíveis = animes assistidos em comum
     pair_scores = []
@@ -544,10 +544,10 @@ def build_analytics(master, grid):
 
             pair_scores.append((u1, u2, common))
 
-    most_compatible_pair = max(pair_scores, key=lambda x: x[2]) if pair_scores else ("-", "-", 0)
+    most_common_pair = max(pair_scores, key=lambda x: x[2]) if pair_scores else ("-", "-", 0)
 
     # Animes divisivos = gente assistiu e gente dropou
-    divisive_animes = sorted(
+    different_opinion_animes = sorted(
         [
             (
                 mid,
@@ -564,23 +564,23 @@ def build_analytics(master, grid):
     most_watched_user = max(USERNAMES, key=lambda u: user_stats[u]["Assistido"])
     most_dropped_user = max(USERNAMES, key=lambda u: user_stats[u]["Dropado"])
     biggest_list_user = max(USERNAMES, key=lambda u: user_stats[u]["total"])
-    best_completion_user = max(USERNAMES, key=lambda u: user_stats[u]["completion_rate"])
-    biggest_backlog_user = max(USERNAMES, key=lambda u: user_stats[u]["backlog"])
-    top_curator_user = max(USERNAMES, key=lambda u: user_stats[u]["exclusive"])
+    best_percent_completed_user = max(USERNAMES, key=lambda u: user_stats[u]["percent_completed"])
+    biggest_to_watch_user = max(USERNAMES, key=lambda u: user_stats[u]["to_watch"])
+    most_unique_watched_user = max(USERNAMES, key=lambda u: user_stats[u]["unique_watched_count"])
 
     return {
         "top_watched": top_watched,
-        "hidden_gems": hidden_gems,
-        "divisive_animes": divisive_animes,
+        "low_seen_animes": low_seen_animes,
+        "different_opinion_animes": different_opinion_animes,
         "user_stats": user_stats,
         "most_watched_user": most_watched_user,
         "most_dropped_user": most_dropped_user,
         "biggest_list_user": biggest_list_user,
-        "best_completion_user": best_completion_user,
-        "biggest_backlog_user": biggest_backlog_user,
-        "top_curator_user": top_curator_user,
-        "exclusive_watched": exclusive_watched,
-        "most_compatible_pair": most_compatible_pair,
+        "best_percent_completed_user": best_percent_completed_user,
+        "biggest_to_watch_user": biggest_to_watch_user,
+        "most_unique_watched_user": most_unique_watched_user,
+        "unique_watched": unique_watched,
+        "most_common_pair": most_common_pair,
         "watched_count": watched_count,
         "dropped_count": dropped_count,
         "active_count": active_count,
@@ -1018,8 +1018,8 @@ def write_stats_sheet(ws, master, grid, analytics):
     N = len(USERNAMES)
 
     top = analytics["top_watched"]
-    hidden = analytics["hidden_gems"]
-    divisive = analytics["divisive_animes"]
+    hidden = analytics["low_seen_animes"]
+    divisive = analytics["different_opinion_animes"]
     us = analytics["user_stats"]
     wc = analytics["watched_count"]
     dc = analytics["dropped_count"]
@@ -1027,13 +1027,13 @@ def write_stats_sheet(ws, master, grid, analytics):
     mwu = analytics["most_watched_user"]
     mdu = analytics["most_dropped_user"]
     blu = analytics["biggest_list_user"]
-    bcu = analytics["best_completion_user"]
-    bbu = analytics["biggest_backlog_user"]
-    tcu = analytics["top_curator_user"]
+    bcu = analytics["best_percent_completed_user"]
+    bbu = analytics["biggest_to_watch_user"]
+    tcu = analytics["most_unique_watched_user"]
 
     all_watched = analytics["all_watched_by_all"]
     total_unique = analytics["total_unique"]
-    pair_u1, pair_u2, pair_common = analytics["most_compatible_pair"]
+    pair_u1, pair_u2, pair_common = analytics["most_common_pair"]
 
     NCOLS = 12
     data = []
@@ -1050,7 +1050,7 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     # Título
     row = blank()
-    row[0] = "  DASHBOARD DO GRUPO"
+    row[0] = "  RESUMO DO GRUPO"
     row[9] = f"Atualizado: {now_br()}"
     data.append(row)
 
@@ -1058,21 +1058,21 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     # Cards: 6 cards, cada um com 2 colunas
     card_labels = [
-        "Total únicos",
+        "Total de animes",
         "Assistidos por todos",
-        "Maior biblioteca",
-        "Melhor conclusão",
-        "Maior backlog",
-        "Curador do grupo",
+        "Maior lista de animes",
+        "Maior % concluída",
+        "Maior to_watch",
+        "Mais animes únicos",
     ]
 
     card_values = [
         str(total_unique),
         f"{all_watched} animes",
         f"{blu} ({us[blu]['total']})",
-        f"{bcu} ({us[bcu]['completion_rate']}%)",
-        f"{bbu} ({us[bbu]['backlog']})",
-        f"{tcu} ({us[tcu]['exclusive']})",
+        f"{bcu} ({us[bcu]['percent_completed']}%)",
+        f"{bbu} ({us[bbu]['to_watch']})",
+        f"{tcu} ({us[tcu]['unique_watched_count']})",
     ]
 
     label_row = blank()
@@ -1112,8 +1112,8 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     data.append(blank())
 
-    # Hidden gems
-    HIDDEN_HDR = add_section("HIDDEN GEMS — ANIMES POUCO VISTOS")
+    # Pouco visto gems
+    HIDDEN_HDR = add_section("ANIMES POUCO ASSISTIDOS PELO GRUPO")
     row = blank()
     row[0] = "Anime"
     row[6] = "Quem assistiu"
@@ -1141,9 +1141,9 @@ def write_stats_sheet(ws, master, grid, analytics):
     row[4] = "Dropado"
     row[5] = "Pausado"
     row[6] = "Total"
-    row[7] = "Conclusão"
-    row[8] = "Backlog"
-    row[9] = "Exclusivos"
+    row[7] = "% concluído"
+    row[8] = "Para assistir"
+    row[9] = "Únicos"
     data.append(row)
 
     sorted_users = sorted(USERNAMES, key=lambda u: -us[u]["Assistido"])
@@ -1160,20 +1160,20 @@ def write_stats_sheet(ws, master, grid, analytics):
         row[4] = s["Dropado"]
         row[5] = s["Pausado"]
         row[6] = s["total"]
-        row[7] = f"{s['completion_rate']}%"
-        row[8] = s["backlog"]
-        row[9] = s["exclusive"]
+        row[7] = f"{s['percent_completed']}%"
+        row[8] = s["to_watch"]
+        row[9] = s["unique_watched_count"]
         data.append(row)
 
     data.append(blank())
 
     # Divisivos
-    DIV_HDR = add_section("ANIMES MAIS DIVISIVOS")
+    DIV_HDR = add_section("ANIMES COM OPINIÕES DIFERENTES")
     row = blank()
     row[0] = "Anime"
     row[6] = "Assistiram"
     row[8] = "Droparam"
-    row[10] = "Score"
+    row[10] = "Total"
     data.append(row)
 
     if divisive:
@@ -1186,20 +1186,20 @@ def write_stats_sheet(ws, master, grid, analytics):
             data.append(row)
     else:
         row = blank()
-        row[0] = "Nenhum anime divisivo encontrado ainda."
+        row[0] = "Nenhum anime com opiniões diferentes encontrado ainda."
         data.append(row)
 
     data.append(blank())
 
     # Compatibilidade + destaques
-    COMPAT_HDR = add_section("COMPATIBILIDADE E DESTAQUES")
+    COMPAT_HDR = add_section("ANIMES EM COMUM E DESTAQUES")
     highlights = [
-        ("Dupla mais compatível", f"{pair_u1} + {pair_u2} → {pair_common} animes em comum"),
-        ("Quem mais assistiu", f"{mwu} → {us[mwu]['Assistido']} concluídos"),
-        ("Quem mais dropou", f"{mdu} → {us[mdu]['Dropado']} dropados"),
-        ("Maior biblioteca", f"{blu} → {us[blu]['total']} animes na lista"),
-        ("Maior backlog", f"{bbu} → {us[bbu]['backlog']} em planejamento/pausados"),
-        ("Curador do grupo", f"{tcu} → {us[tcu]['exclusive']} animes exclusivos"),
+        ("Dupla com mais animes em comum", f"{pair_u1} + {pair_u2} → {pair_common} animes em comum"),
+        ("Pessoa que mais concluiu animes", f"{mwu} → {us[mwu]['Assistido']} concluídos"),
+        ("Pessoa que mais dropou animes", f"{mdu} → {us[mdu]['Dropado']} dropados"),
+        ("Maior lista de animes", f"{blu} → {us[blu]['total']} animes na lista"),
+        ("Maior to_watch", f"{bbu} → {us[bbu]['to_watch']} planejados ou pausados"),
+        ("Mais animes únicos", f"{tcu} → {us[tcu]['unique_watched_count']} animes únicos assistidos"),
     ]
 
     for label, value in highlights:
@@ -1414,7 +1414,7 @@ def write_stats_sheet(ws, master, grid, analytics):
     reqs.append(outer_border(sid, TOP_HDR, top_end, 0, NCOLS))
     reqs.append(row_height(sid, top_start, top_end, 24))
 
-    # Hidden style
+    # Pouco visto style
     hidden_start = HIDDEN_HDR + 2
     hidden_end = hidden_start + len(hidden)
 
