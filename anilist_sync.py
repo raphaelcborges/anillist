@@ -1,6 +1,6 @@
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # ARMÁRIO DOS ANIMES — AniList + MyAnimeList -> Google Sheets
-# Dashboard melhorado + estatísticas novas — versão sem células mescladas
+# Dashboard melhorado + estatísticas novas — versão sem merge e sem freeze
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #
 # COLAB — rode antes, em células separadas, se precisar:
@@ -837,7 +837,7 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
 
     reqs = []
     reqs.append(unmerge_all(sid))
-    reqs.append(freeze(sid, rows=0, cols=0))
+    # Freeze desativado para evitar conflito com merges antigos no Google Sheets.
     reqs.append({"clearBasicFilter": {"sheetId": sid}})
 
     reqs.append(
@@ -983,8 +983,7 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
 
     reqs.append(row_height(sid, DATA_START, DATA_START + n, 24))
     reqs.append(outer_border(sid, 0, len(rows), 0, total_cols))
-
-    reqs.append(freeze(sid, rows=DATA_START, cols=0))
+    # Freeze desativado para evitar conflito com merges antigos no Google Sheets.
 
     reqs.append(
         {
@@ -1214,7 +1213,7 @@ def write_stats_sheet(ws, master, grid, analytics):
 
     reqs = []
     reqs.append(unmerge_all(sid))
-    reqs.append(freeze(sid, rows=0, cols=0))
+    # Freeze desativado para evitar conflito com merges antigos no Google Sheets.
 
     nrows = len(data)
 
@@ -1615,7 +1614,7 @@ def write_stats_sheet(ws, master, grid, analytics):
     # Não congelar a aba Resumo: ela usa várias células mescladas nos cards.
     # O Google Sheets pode rejeitar freeze quando há merges no dashboard.
     # A aba Animes continua congelada normalmente.
-    reqs.append(freeze(sid, rows=0, cols=0))
+    # Freeze desativado para evitar conflito com merges antigos no Google Sheets.
 
     return reqs
 
@@ -1687,6 +1686,49 @@ def organize_spreadsheet_tabs(spreadsheet):
         spreadsheet.add_worksheet(title="Resumo", rows=500, cols=15)
 
 
+
+# ─────────────────────────────────────────────
+# LIMPEZA DE MERGES/FREEZE ANTIGOS
+# ─────────────────────────────────────────────
+
+def clear_sheet_layout_conflicts(spreadsheet, worksheets):
+    """
+    Limpa merges e congelamentos antigos antes do batch principal.
+
+    Isso é importante porque uma execução anterior pode ter deixado células mescladas
+    na planilha. Mesmo que o código novo não crie merges, o Google Sheets ainda pode
+    recusar qualquer updateSheetProperties de freeze se houver merges antigos.
+    """
+    requests = []
+
+    for ws in worksheets:
+        sid = ws.id
+
+        requests.append({
+            "unmergeCells": {
+                "range": {
+                    "sheetId": sid
+                }
+            }
+        })
+
+        requests.append({
+            "updateSheetProperties": {
+                "properties": {
+                    "sheetId": sid,
+                    "gridProperties": {
+                        "frozenRowCount": 0,
+                        "frozenColumnCount": 0,
+                    },
+                },
+                "fields": "gridProperties.frozenRowCount,gridProperties.frozenColumnCount",
+            }
+        })
+
+    if requests:
+        spreadsheet.batch_update({"requests": requests})
+
+
 # ─────────────────────────────────────────────
 # SYNC
 # ─────────────────────────────────────────────
@@ -1700,6 +1742,9 @@ def run_sync(spreadsheet, verbose=True):
 
     ws_animes = spreadsheet.worksheet("Animes")
     ws_resumo = spreadsheet.worksheet("Resumo")
+
+    # Limpa merges/freeze antigos em uma chamada separada antes da formatação.
+    clear_sheet_layout_conflicts(spreadsheet, [ws_animes, ws_resumo])
 
     all_reqs = []
 
@@ -1799,6 +1844,9 @@ def main():
 
             ws_animes = spreadsheet.worksheet("Animes")
             ws_resumo = spreadsheet.worksheet("Resumo")
+
+            # Limpa merges/freeze antigos em uma chamada separada antes da formatação.
+            clear_sheet_layout_conflicts(spreadsheet, [ws_animes, ws_resumo])
 
             all_reqs = []
 
