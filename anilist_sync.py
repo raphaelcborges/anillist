@@ -56,8 +56,7 @@ SYNC_INTERVAL = 300  # 300 = 5 min
 
 # True = fica rodando em loop.
 # False = roda uma vez e para.
-AUTO_LOOP = True
-
+AUTO_LOOP = False
 # Se usar GitHub Actions/Render/etc, você pode setar SPREADSHEET_ID.
 # Se deixar vazio, ele abre/cria pelo nome.
 SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID", "").strip()
