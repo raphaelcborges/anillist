@@ -1,6 +1,6 @@
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # ARMÁRIO DOS ANIMES — AniList + MyAnimeList -> Google Sheets
-# Dashboard melhorado + estatísticas novas
+# Dashboard melhorado + estatísticas novas — versão sem células mescladas
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #
 # COLAB — rode antes, em células separadas, se precisar:
@@ -734,8 +734,16 @@ def col_width(sid, c1, c2, px):
 
 
 def merge_cells(sid, r1, r2, c1, c2):
+    """
+    Versão segura: NÃO mescla células.
+
+    Motivo:
+    O Google Sheets dá erro quando tenta congelar linhas/colunas que cruzam células mescladas.
+    Para deixar o dashboard mais estável no GitHub Actions/Colab, esta função vira um
+    "no-op" visual: apenas mantém o wrapStrategy da região.
+    """
     return {
-        "mergeCells": {
+        "repeatCell": {
             "range": {
                 "sheetId": sid,
                 "startRowIndex": r1,
@@ -743,7 +751,12 @@ def merge_cells(sid, r1, r2, c1, c2):
                 "startColumnIndex": c1,
                 "endColumnIndex": c2,
             },
-            "mergeType": "MERGE_ALL",
+            "cell": {
+                "userEnteredFormat": {
+                    "wrapStrategy": "CLIP"
+                }
+            },
+            "fields": "userEnteredFormat.wrapStrategy",
         }
     }
 
@@ -971,7 +984,7 @@ def write_sync_sheet(ws, master, grid, analytics, last_updated):
     reqs.append(row_height(sid, DATA_START, DATA_START + n, 24))
     reqs.append(outer_border(sid, 0, len(rows), 0, total_cols))
 
-    reqs.append(freeze(sid, rows=DATA_START, cols=1))
+    reqs.append(freeze(sid, rows=DATA_START, cols=0))
 
     reqs.append(
         {
