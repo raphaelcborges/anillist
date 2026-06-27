@@ -1599,8 +1599,10 @@ def write_stats_sheet(ws, master, grid, analytics):
     for c in range(NCOLS):
         reqs.append(col_width(sid, c, c + 1, widths.get(c, 90)))
 
-    # Deixa congelado o título + cards
-    reqs.append(freeze(sid, rows=5, cols=0))
+    # Não congelar a aba Resumo: ela usa várias células mescladas nos cards.
+    # O Google Sheets pode rejeitar freeze quando há merges no dashboard.
+    # A aba Animes continua congelada normalmente.
+    reqs.append(freeze(sid, rows=0, cols=0))
 
     return reqs
 
