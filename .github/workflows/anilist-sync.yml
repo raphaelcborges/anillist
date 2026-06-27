@@ -1,14 +1,14 @@
 name: Atualizar Armário dos Animes
-
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
-
+    - cron: "7,22,37,52 * * * *"
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # necessário para commitar o data.json
 
     steps:
       - name: Baixar repositório
@@ -27,3 +27,11 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
         run: python anilist_sync.py
+
+      - name: Commitar data.json atualizado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data.json
+          git diff --staged --quiet || git commit -m "chore: atualiza data.json [skip ci]"
+          git push
