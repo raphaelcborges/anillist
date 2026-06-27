@@ -1,5 +1,5 @@
 {
-  "updated": "27/06/2026  14:04",
+  "updated": "27/06/2026  16:11",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -2678,6 +2678,24 @@
       }
     },
     {
+      "id": "166617",
+      "title": "Fate/strange Fake",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166617-34fpC9y47tTx.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "21518",
       "title": "Food Wars! The Second Plate",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21518-uBqzDGIuSxJ5.jpg",
@@ -4316,24 +4334,6 @@
       }
     },
     {
-      "id": "166617",
-      "title": "Fate/strange Fake",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166617-34fpC9y47tTx.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
       "id": "10087",
       "title": "Fate/Zero",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10087-M4Hd9qrHGrXk.png",
@@ -4436,6 +4436,24 @@
         "Jotalhos": "Assistido",
         "niccname": "-",
         "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "182255",
+      "title": "Frieren: Beyond Journey’s End Season 2",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx182255-butzrqd4I0aC.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
@@ -8513,24 +8531,6 @@
       "id": "20614",
       "title": "Free! -Eternal Summer-",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20614-Dr962gTXZzMs.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "182255",
-      "title": "Frieren: Beyond Journey’s End Season 2",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx182255-butzrqd4I0aC.jpg",
       "source": "AniList",
       "statuses": {
         "CianBrz": "-",
@@ -14396,6 +14396,24 @@
       }
     },
     {
+      "id": "147105",
+      "title": "Witch Hat Atelier",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx147105-rwOX8qyUy8gV.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Planejando",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "20627",
       "title": "World Break: Aria of Curse for a Holy Swordsman",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20627-qAzYOBmxk5iS.jpg",
@@ -17932,24 +17950,6 @@
         "CianBrz": "-",
         "BingoRTv": "-",
         "Dioo": "Planejando",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "147105",
-      "title": "Witch Hat Atelier",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx147105-rwOX8qyUy8gV.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "Planejando",
-        "Dioo": "-",
         "Gumya": "-",
         "Jotalhos": "-",
         "niccname": "-",
