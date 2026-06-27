@@ -65,6 +65,7 @@ SYNC_INTERVAL    = 300   # segundos entre verificações (300 = 5 min)
 USERNAMES = [
     "CianBrz", "BingoRTv", "Dioo", "Gumya",
     "Jotalhos", "niccname", "ViniAxd", "SleepyGT",
+    "Cafito",
 ]
 
 STATUS_MAP = {
