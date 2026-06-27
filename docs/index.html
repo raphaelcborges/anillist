@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armário dos Animes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0f;
+      --surface:   #12121a;
+      --surface2:  #1a1a26;
+      --border:    #2a2a3a;
+      --text:      #e8e8f0;
+      --muted:     #6b6b88;
+      --accent:    #7c5cbf;
+      --accent2:   #a07ee8;
+
+      --assistido:  #34a853;
+      --assistindo: #4285f4;
+      --planejando: #9c27b0;
+      --pausado:    #fbbc04;
+      --dropado:    #ea4335;
+      --vazio:      #2a2a3a;
+
+      --assistido-fg:  #fff;
+      --assistindo-fg: #fff;
+      --planejando-fg: #fff;
+      --pausado-fg:    #1a1400;
+      --dropado-fg:    #fff;
+      --vazio-fg:      #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--accent2);
+      white-space: nowrap;
+    }
+
+    .header-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* ── CONTROLES ── */
+    .controls {
+      padding: 20px 24px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 360px;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      padding: 8px 12px 8px 34px;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    input[type="search"]:focus { border-color: var(--accent); }
+    input[type="search"]::placeholder { color: var(--muted); }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .15s;
+      user-select: none;
+    }
+
+    .chip:hover { border-color: var(--accent); color: var(--text); }
+
+    .chip.active-assistido   { background: var(--assistido);  border-color: var(--assistido);  color: #fff; }
+    .chip.active-assistindo  { background: var(--assistindo); border-color: var(--assistindo); color: #fff; }
+    .chip.active-planejando  { background: var(--planejando); border-color: var(--planejando); color: #fff; }
+    .chip.active-pausado     { background: var(--pausado);    border-color: var(--pausado);    color: #1a1400; }
+    .chip.active-dropado     { background: var(--dropado);    border-color: var(--dropado);    color: #fff; }
+    .chip.active-todos       { background: var(--accent);     border-color: var(--accent);     color: #fff; }
+
+    .stats-bar {
+      padding: 14px 24px 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      line-height: 1;
+      color: var(--accent2);
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    /* ── GRID DE CARDS ── */
+    .grid {
+      padding: 20px 24px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(124,92,191,.25);
+    }
+
+    .card-cover {
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      display: block;
+      background: var(--surface2);
+    }
+
+    .card-cover-placeholder {
+      width: 100%;
+      aspect-ratio: 2/3;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 32px;
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 8px;
+      min-height: 32px;
+    }
+
+    .card-users {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .badge {
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+      letter-spacing: .3px;
+    }
+
+    .badge-assistido  { background: var(--assistido);  color: var(--assistido-fg); }
+    .badge-assistindo { background: var(--assistindo); color: var(--assistindo-fg); }
+    .badge-planejando { background: var(--planejando); color: var(--planejando-fg); }
+    .badge-pausado    { background: var(--pausado);    color: var(--pausado-fg); }
+    .badge-dropado    { background: var(--dropado);    color: var(--dropado-fg); }
+
+    .card-watch-count {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(10,10,15,.8);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent2);
+      padding: 2px 7px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-cover {
+      width: 90px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      object-fit: cover;
+      aspect-ratio: 2/3;
+      background: var(--surface2);
+    }
+
+    .modal-info { flex: 1; min-width: 0; }
+
+    .modal-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .modal-watched {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .modal-watched span {
+      color: var(--accent2);
+      font-weight: 600;
+    }
+
+    .modal-body { padding: 20px; }
+
+    .modal-user-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-user-row:last-child { border-bottom: none; }
+
+    .modal-username {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 6px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: color .15s;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+
+    .empty-icon { font-size: 48px; margin-bottom: 12px; }
+    .empty p { font-size: 15px; }
+
+    /* ── LOADING ── */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 999;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent2);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #loading p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 14px; }
+      .controls, .stats-bar { padding-left: 14px; padding-right: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; }
+      .spinner { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Carregando armário...</p>
+</div>
+
+<header>
+  <div class="logo">ARMÁRIO DOS ANIMES</div>
+  <div class="header-meta" id="last-updated">—</div>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input type="search" id="search" placeholder="Buscar anime..." autocomplete="off" />
+  </div>
+
+  <div class="filter-group" id="status-filters">
+    <div class="chip active-todos" data-status="todos">Todos</div>
+    <div class="chip" data-status="Assistido">Assistido</div>
+    <div class="chip" data-status="Assistindo">Assistindo</div>
+    <div class="chip" data-status="Planejando">Planejando</div>
+    <div class="chip" data-status="Pausado">Pausado</div>
+    <div class="chip" data-status="Dropado">Dropado</div>
+  </div>
+
+  <div class="filter-group" id="user-filters"></div>
+</div>
+
+<div class="stats-bar" id="stats-bar">
+  <div class="stat"><div class="stat-val" id="stat-total">—</div><div class="stat-lbl">Animes únicos</div></div>
+  <div class="stat"><div class="stat-val" id="stat-showing">—</div><div class="stat-lbl">Exibindo</div></div>
+  <div class="stat"><div class="stat-val" id="stat-users">—</div><div class="stat-lbl">Usuários</div></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-header">
+      <img class="modal-cover" id="modal-cover" src="" alt="" />
+      <div class="modal-info">
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-watched" id="modal-watched"></div>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+  const STATUS_CLASS = {
+    "Assistido":  "assistido",
+    "Assistindo": "assistindo",
+    "Planejando": "planejando",
+    "Pausado":    "pausado",
+    "Dropado":    "dropado",
+  };
+
+  let allAnimes = [];
+  let users = [];
+  let activeStatus = "todos";
+  let activeUser = null;
+  let searchQuery = "";
+
+  async function loadData() {
+    const r = await fetch("data.json?t=" + Date.now());
+    if (!r.ok) throw new Error("data.json não encontrado");
+    return r.json();
+  }
+
+  function buildCard(anime) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.id = anime.id;
+
+    const watchedCount = users.filter(u => anime.statuses[u] === "Assistido").length;
+
+    const imgEl = anime.cover
+      ? `<img class="card-cover" src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" /><div class="card-cover-placeholder" style="display:none">🎬</div>`
+      : `<div class="card-cover-placeholder">🎬</div>`;
+
+    const badges = users
+      .filter(u => anime.statuses[u] && anime.statuses[u] !== "-")
+      .map(u => {
+        const st = anime.statuses[u];
+        const cls = STATUS_CLASS[st] || "";
+        return `<span class="badge badge-${cls}" title="${u}">${u.substring(0,4)}</span>`;
+      }).join("");
+
+    card.innerHTML = `
+      ${imgEl}
+      <div class="card-watch-count">${watchedCount}/${users.length}</div>
+      <div class="card-body">
+        <div class="card-title">${anime.title}</div>
+        <div class="card-users">${badges}</div>
+      </div>
+    `;
+
+    card.addEventListener("click", () => openModal(anime));
+    return card;
+  }
+
+  function openModal(anime) {
+    document.getElementById("modal-cover").src = anime.cover || "";
+    document.getElementById("modal-cover").style.display = anime.cover ? "block" : "none";
+    document.getElementById("modal-title").textContent = anime.title;
+
+    const watchedCount = users.filter(u => anime.statuses[u] === "Assistido").length;
+    document.getElementById("modal-watched").innerHTML =
+      `<span>${watchedCount} de ${users.length}</span> usuários assistiram`;
+
+    const body = document.getElementById("modal-body");
+    body.innerHTML = users.map(u => {
+      const st = anime.statuses[u] || "-";
+      const cls = STATUS_CLASS[st] || "";
+      const badge = cls
+        ? `<span class="badge badge-${cls}">${st}</span>`
+        : `<span style="color:var(--muted);font-size:12px">—</span>`;
+      return `<div class="modal-user-row">
+        <span class="modal-username">${u}</span>
+        ${badge}
+      </div>`;
+    }).join("");
+
+    document.getElementById("modal-overlay").classList.add("open");
+  }
+
+  function closeModal() {
+    document.getElementById("modal-overlay").classList.remove("open");
+  }
+
+  function getFiltered() {
+    return allAnimes.filter(a => {
+      const matchSearch = !searchQuery ||
+        a.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const matchStatus = activeStatus === "todos" ||
+        Object.values(a.statuses).includes(activeStatus);
+
+      const matchUser = !activeUser ||
+        (a.statuses[activeUser] && a.statuses[activeUser] !== "-");
+
+      return matchSearch && matchStatus && matchUser;
+    });
+  }
+
+  function render() {
+    const grid = document.getElementById("grid");
+    const filtered = getFiltered();
+
+    document.getElementById("stat-showing").textContent = filtered.length;
+    grid.innerHTML = "";
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>Nenhum anime encontrado.</p></div>`;
+      return;
+    }
+
+    const frag = document.createDocumentFragment();
+    filtered.forEach(a => frag.appendChild(buildCard(a)));
+    grid.appendChild(frag);
+  }
+
+  function buildUserFilters() {
+    const wrap = document.getElementById("user-filters");
+    wrap.innerHTML = "";
+    users.forEach(u => {
+      const chip = document.createElement("div");
+      chip.className = "chip";
+      chip.dataset.user = u;
+      chip.textContent = u;
+      chip.addEventListener("click", () => {
+        if (activeUser === u) {
+          activeUser = null;
+          chip.classList.remove(`active-assistido`);
+          chip.style.background = "";
+          chip.style.borderColor = "";
+          chip.style.color = "";
+        } else {
+          // Remove seleção anterior
+          wrap.querySelectorAll(".chip").forEach(c => {
+            c.style.background = "";
+            c.style.borderColor = "";
+            c.style.color = "";
+          });
+          activeUser = u;
+          chip.style.background = "var(--accent)";
+          chip.style.borderColor = "var(--accent)";
+          chip.style.color = "#fff";
+        }
+        render();
+      });
+      wrap.appendChild(chip);
+    });
+  }
+
+  // Filtros de status
+  document.getElementById("status-filters").addEventListener("click", e => {
+    const chip = e.target.closest(".chip");
+    if (!chip) return;
+    const st = chip.dataset.status;
+
+    document.querySelectorAll("#status-filters .chip").forEach(c => {
+      c.className = "chip";
+    });
+
+    activeStatus = st;
+    const cls = st === "todos" ? "active-todos" : `active-${st.toLowerCase()}`;
+    chip.classList.add(cls);
+    render();
+  });
+
+  // Busca
+  document.getElementById("search").addEventListener("input", e => {
+    searchQuery = e.target.value;
+    render();
+  });
+
+  // Modal
+  document.getElementById("modal-close").addEventListener("click", closeModal);
+  document.getElementById("modal-overlay").addEventListener("click", e => {
+    if (e.target === document.getElementById("modal-overlay")) closeModal();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+  // Init
+  loadData().then(data => {
+    users = data.users;
+    allAnimes = data.animes;
+
+    document.getElementById("stat-total").textContent = allAnimes.length;
+    document.getElementById("stat-users").textContent = users.length;
+    document.getElementById("last-updated").textContent = "atualizado " + (data.updated || "—");
+
+    buildUserFilters();
+    render();
+
+    document.getElementById("loading").style.display = "none";
+  }).catch(err => {
+    document.getElementById("loading").innerHTML =
+      `<div style="text-align:center;color:#ea4335;font-family:monospace">
+        <div style="font-size:32px;margin-bottom:12px">⚠</div>
+        <div>Erro ao carregar data.json</div>
+        <div style="color:#6b6b88;font-size:11px;margin-top:8px">${err.message}</div>
+      </div>`;
+  });
+</script>
+</body>
+</html>
