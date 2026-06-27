@@ -33,7 +33,7 @@ ANILIST_USERNAMES = [
     "Cafito",
 ]
 
-# Usuários do MyAnimeList (via Jikan)
+# Usuários do MyAnimeList (via load.json do próprio MAL)
 MAL_USERNAMES = [
     "KakaCrads",
 ]
@@ -164,143 +164,125 @@ def fetch_anilist_user(username):
     return anime_map
 
 # ─────────────────────────────────────────────
-# MAL — busca via Jikan (sem autenticação)
+# MAL — busca direta pelo load.json do MyAnimeList
 # ─────────────────────────────────────────────
 
-def normalize_mal_status(raw_status):
-    """
-    Converte qualquer formato de status do MAL/Jikan para o padrão interno.
+MAL_LOAD_JSON_URL = "https://myanimelist.net/animelist/{username}/load.json"
 
-    Possíveis formatos que podem aparecer:
-    - números: 1, 2, 3, 4, 6
-    - strings numéricas: "1", "2", "3", "4", "6"
-    - textos: "Watching", "Completed", "On-Hold", "Dropped", "Plan to Watch"
-    - textos normalizados: "watching", "completed", "on_hold", etc.
-    """
-    if raw_status is None:
-        return "-"
 
-    int_map = {
+def normalize_mal_status_from_load_json(raw_status):
+    """
+    Status do MAL no endpoint /load.json:
+    1 = Watching
+    2 = Completed
+    3 = On-Hold
+    4 = Dropped
+    6 = Plan to Watch
+    """
+    status_map = {
         1: "Assistindo",
         2: "Assistido",
         3: "Pausado",
         4: "Dropado",
         6: "Planejando",
+        "1": "Assistindo",
+        "2": "Assistido",
+        "3": "Pausado",
+        "4": "Dropado",
+        "6": "Planejando",
     }
-
-    if isinstance(raw_status, int):
-        return int_map.get(raw_status, "-")
-
-    raw = str(raw_status).strip()
-
-    if raw.isdigit():
-        return int_map.get(int(raw), "-")
-
-    s = raw.lower()
-    s = s.replace("-", "_")
-    s = s.replace(" ", "_")
-
-    status_map = {
-        "completed": "Assistido",
-        "watching": "Assistindo",
-        "on_hold": "Pausado",
-        "dropped": "Dropado",
-        "plan_to_watch": "Planejando",
-        "plantowatch": "Planejando",
-        "plan_to_watching": "Planejando",
-    }
-
-    return status_map.get(s, "-")
+    return status_map.get(raw_status, "-")
 
 
 def fetch_mal_user(username):
     """
-    Busca a lista completa do MAL de um usuário via Jikan v4.
+    Busca a lista do MyAnimeList diretamente pelo endpoint JSON usado pelo site:
+    https://myanimelist.net/animelist/{username}/load.json
 
-    Importante:
-    - A lista do MyAnimeList precisa estar pública.
-    - A Jikan não usa login, então não consegue acessar lista privada.
-    - O mal_id recebe prefixo 'mal_' para não colidir com IDs do AniList.
+    Isso costuma funcionar melhor que Jikan quando a lista abre normalmente no navegador.
+    Usa o anime_id com prefixo 'mal_' para não colidir com IDs do AniList.
     """
     anime_map = {}
-    page = 1
+    offset = 0
+    limit = 300
+
+    session = requests.Session()
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "application/json, text/plain, */*",
+        "Referer": f"https://myanimelist.net/animelist/{username}",
+    }
 
     while True:
-        url = f"{JIKAN_API_URL}/users/{username}/animelist"
+        url = MAL_LOAD_JSON_URL.format(username=username)
 
         try:
-            r = requests.get(
+            r = session.get(
                 url,
                 params={
-                    "page": page,
-                    "limit": 300,
+                    "offset": offset,
+                    "status": 7,  # 7 = todos os status
                 },
-                headers={
-                    "Accept": "application/json",
-                    "User-Agent": "anime-sync-script/1.0",
-                },
+                headers=headers,
                 timeout=30,
             )
 
-            if r.status_code == 429:
-                wait = int(r.headers.get("Retry-After", 10))
-                print(f"  Rate limit Jikan! Aguardando {wait}s...")
-                time.sleep(wait)
-                continue
+            if r.status_code == 403:
+                print(f"  MAL bloqueou a requisição para '{username}' — HTTP 403.")
+                print("  Tente rodar localmente ou usar a API oficial do MAL.")
+                return anime_map
 
             if r.status_code == 404:
-                print(f"  Usuário MAL '{username}' não encontrado ou lista indisponível.")
-                return {}
+                print(f"  Usuário MAL '{username}' não encontrado.")
+                return anime_map
 
-            if r.status_code in (400, 401, 403):
-                print(f"  MAL '{username}' pode estar privado/restrito.")
-                print(f"  Status HTTP: {r.status_code}")
-                print(f"  Resposta: {r.text[:500]}")
-                return {}
+            if r.status_code == 429:
+                print("  Rate limit do MAL. Aguardando 15s...")
+                time.sleep(15)
+                continue
 
             r.raise_for_status()
-            data = r.json()
+
+            try:
+                items = r.json()
+            except ValueError:
+                print(f"  MAL não retornou JSON para '{username}'.")
+                print(f"  Resposta inicial: {r.text[:500]}")
+                return anime_map
 
         except requests.RequestException as e:
             print(f"  Erro ao buscar MAL '{username}': {e}")
             return anime_map
 
-        items = data.get("data", [])
-        print(f"    Página MAL {page}: {len(items)} itens")
+        print(f"    MAL offset {offset}: {len(items)} itens")
 
         if not items:
             break
 
         for idx, entry in enumerate(items):
-            anime = entry.get("anime") or entry.get("node") or {}
-
-            mal_id = (
-                anime.get("mal_id")
-                or anime.get("id")
-                or entry.get("mal_id")
-            )
-
+            mal_id = entry.get("anime_id")
             if not mal_id:
                 continue
 
             title = (
-                anime.get("title_english")
-                or anime.get("title")
-                or anime.get("title_japanese")
+                entry.get("anime_title_eng")
+                or entry.get("anime_title")
                 or f"MAL:{mal_id}"
             )
 
-            raw_status = (
-                entry.get("watching_status")
-                or entry.get("status")
-                or entry.get("list_status", {}).get("status")
-            )
+            raw_status = entry.get("status")
+            status = normalize_mal_status_from_load_json(raw_status)
 
-            status = normalize_mal_status(raw_status)
-
-            # Debug dos primeiros itens para você ver no log o que está vindo da API
-            if page == 1 and idx < 5:
-                print(f"      DEBUG MAL: {title} | raw_status={raw_status} | status={status}")
+            if offset == 0 and idx < 5:
+                print(
+                    f"      DEBUG MAL: {title} | "
+                    f"raw_status={raw_status} | status={status}"
+                )
 
             key = f"mal_{mal_id}"
             anime_map[key] = {
@@ -308,17 +290,11 @@ def fetch_mal_user(username):
                 "status": status,
             }
 
-        pagination = data.get("pagination", {})
-
-        if not pagination.get("has_next_page", False):
+        if len(items) < limit:
             break
 
-        page += 1
-        time.sleep(0.7)
-
-    if anime_map and all(info.get("status") == "-" for info in anime_map.values()):
-        print(f"  ATENÇÃO: MAL '{username}' retornou animes, mas nenhum status foi reconhecido.")
-        print("  Veja os DEBUG MAL acima e me mande essas linhas se continuar zerado.")
+        offset += limit
+        time.sleep(1.5)
 
     return anime_map
 
@@ -971,25 +947,6 @@ def organize_spreadsheet_tabs(spreadsheet):
         spreadsheet.del_worksheet(old_highlights)
     except gspread.WorksheetNotFound:
         pass
-
-
-# ─────────────────────────────────────────────
-# TESTE ISOLADO DO MAL
-# ─────────────────────────────────────────────
-
-def test_mal():
-    print("=" * 55)
-    print("  Teste MyAnimeList via Jikan")
-    print("=" * 55)
-
-    for user in MAL_USERNAMES:
-        print(f"\nTestando MAL: {user}")
-        data = fetch_mal_user(user)
-        print(f"Total encontrado: {len(data)} animes")
-
-        for mid, info in list(data.items())[:10]:
-            print(mid, "=>", info)
-
 
 # ─────────────────────────────────────────────
 # MAIN
