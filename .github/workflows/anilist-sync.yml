@@ -2,7 +2,7 @@ name: Atualizar Armário dos Animes
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7,22,37,52 * * * *"
+  - cron: "0 * * * *"
 
 jobs:
   sync:
