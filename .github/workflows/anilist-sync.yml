@@ -1,14 +1,15 @@
 name: Atualizar Armário dos Animes
+
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0 * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # necessário para commitar o data.json
+      contents: write
 
     steps:
       - name: Baixar repositório
