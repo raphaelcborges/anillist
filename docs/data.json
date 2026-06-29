@@ -1,5 +1,5 @@
 {
-  "updated": "29/06/2026  13:35",
+  "updated": "29/06/2026  16:00",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -1232,7 +1232,7 @@
         "Jotalhos": "Assistido",
         "niccname": "Assistido",
         "ViniAxd": "Assistido",
-        "SleepyGT": "-",
+        "SleepyGT": "Planejando",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -3159,6 +3159,24 @@
         "niccname": "-",
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "14407",
+      "title": "Persona 3 the Movie: #1 Spring of Birth",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b14407-MgkKNW85qOot.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -5378,19 +5396,19 @@
       }
     },
     {
-      "id": "14407",
-      "title": "Persona 3 the Movie: #1 Spring of Birth",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b14407-MgkKNW85qOot.png",
+      "id": "20736",
+      "title": "Persona 3 the Movie: #2 Midsummer Knight's Dream",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b20736-jVcCYKzdrwA4.png",
       "source": "AniList",
       "statuses": {
-        "CianBrz": "Assistido",
+        "CianBrz": "Planejando",
         "BingoRTv": "-",
         "Dioo": "Assistido",
         "Gumya": "-",
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
-        "SleepyGT": "-",
+        "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -7766,7 +7784,7 @@
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
-        "SleepyGT": "Assistindo",
+        "SleepyGT": "Planejando",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -11498,19 +11516,37 @@
       }
     },
     {
-      "id": "20736",
-      "title": "Persona 3 the Movie: #2 Midsummer Knight's Dream",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b20736-jVcCYKzdrwA4.png",
+      "id": "20737",
+      "title": "Persona 3 the Movie: #3 Falling Down",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b20737-6FybEDNF0P6u.png",
       "source": "AniList",
       "statuses": {
         "CianBrz": "Planejando",
         "BingoRTv": "-",
-        "Dioo": "Assistido",
+        "Dioo": "-",
         "Gumya": "-",
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
-        "SleepyGT": "-",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "21248",
+      "title": "Persona 3 the Movie: #4 Winter of Rebirth",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b21248-nze05fa3smqI.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Planejando",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -14882,6 +14918,24 @@
       }
     },
     {
+      "id": "100388",
+      "title": "BANANA FISH",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100388-hjkg1AnlJR5z.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "20722",
       "title": "Barakamon",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20722-2KAeq72E95dr.png",
@@ -16538,6 +16592,24 @@
       }
     },
     {
+      "id": "175977",
+      "title": "My Deer Friend Nokotan",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx175977-kNNpCt8Z72uK.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "163139",
       "title": "My Hero Academia Season 7",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx163139-JchZhUFlNTWU.jpg",
@@ -16854,42 +16926,6 @@
         "Dioo": "-",
         "Gumya": "-",
         "Jotalhos": "Planejando",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20737",
-      "title": "Persona 3 the Movie: #3 Falling Down",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b20737-6FybEDNF0P6u.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "21248",
-      "title": "Persona 3 the Movie: #4 Winter of Rebirth",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b21248-nze05fa3smqI.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
@@ -17307,6 +17343,24 @@
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "196187",
+      "title": "Smoking Behind the Supermarket with You",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx196187-cXhET893v3Ag.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -17810,7 +17864,7 @@
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
-        "SleepyGT": "Assistindo",
+        "SleepyGT": "Planejando",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -18050,6 +18104,24 @@
       }
     },
     {
+      "id": "184951",
+      "title": "You and I Are Polar Opposites",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx184951-s8Lg2muPBhdX.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "114072",
       "title": "Yu-Gi-Oh! SEVENS",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114072-3C6Bbv490sNj.jpg",
@@ -18069,7 +18141,7 @@
     }
   ],
   "summary": {
-    "total_unique": 1003,
+    "total_unique": 1007,
     "all_watched_by_all": 0
   }
 }
