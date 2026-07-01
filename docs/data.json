@@ -1,5 +1,5 @@
 {
-  "updated": "30/06/2026  21:02",
+  "updated": "01/07/2026  02:17",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -12056,6 +12056,24 @@
       }
     },
     {
+      "id": "187921",
+      "title": "Record of Ragnarok III",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx187921-jHCMGThdJtS6.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "6675",
       "title": "Redline",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx6675-NF4tFzAxSjkj.png",
@@ -18141,7 +18159,7 @@
     }
   ],
   "summary": {
-    "total_unique": 1007,
+    "total_unique": 1008,
     "all_watched_by_all": 0
   }
 }
