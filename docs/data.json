@@ -1,5 +1,5 @@
 {
-  "updated": "04/07/2026  18:53",
+  "updated": "04/07/2026  19:52",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -15368,6 +15368,24 @@
       }
     },
     {
+      "id": "178031",
+      "title": "Delicious in Dungeon Season 2",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178031-XNWYP6Qf18bB.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Planejando",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Planejando",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "129874",
       "title": "Demon Slayer: Kimetsu no Yaiba Mugen Train Arc",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx129874-g6ZKXB94Hui1.jpg",
@@ -15561,24 +15579,6 @@
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "Planejando",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "178031",
-      "title": "Dungeon Meshi 2nd Season",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178031-prNFZXuxg4nN.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "Planejando",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
       }
