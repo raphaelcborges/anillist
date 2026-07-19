@@ -591,9 +591,13 @@
       ? `https://anilist.co/anime/${anilistId}`
       : malId ? `https://myanimelist.net/anime/${malId}` : null;
     const externalLabel = anilistId ? "Ver no AniList" : "Ver no MyAnimeList";
+    const seanimeUrl = anilistId
+      ? `http://127.0.0.1:43211/entry/?id=${anilistId}`
+      : null;
 
     document.getElementById("modal-actions").innerHTML = `
-      ${externalUrl ? `<a href="${externalUrl}" target="_blank" rel="noopener noreferrer" class="action-btn">${externalLabel}</a>` : ""}
+      ${seanimeUrl ? `<a href="${seanimeUrl}" target="_blank" rel="noopener noreferrer" class="action-btn">▶ Abrir no Seanime</a>` : ""}
+      ${externalUrl ? `<a href="${externalUrl}" target="_blank" rel="noopener noreferrer" class="action-btn action-btn-secondary">${externalLabel}</a>` : ""}
       <button type="button" class="action-btn action-btn-secondary" id="copy-anime-title">Copiar nome</button>
     `;
 
