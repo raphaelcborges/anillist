@@ -370,8 +370,15 @@
 
     .modal-close:hover { color: var(--text); }
 
-    /* ── BOTÃO MIRU ── */
-    .miru-btn {
+    /* ── AÇÕES EXTERNAS ── */
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .action-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -382,17 +389,27 @@
       border-radius: 6px;
       font-weight: 600;
       font-size: 13px;
-      margin-top: 10px;
       transition: background .2s, transform .1s;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
     }
 
-    .miru-btn:hover {
+    .action-btn:hover {
       background: var(--accent2);
     }
     
-    .miru-btn:active {
+    .action-btn:active {
       transform: scale(0.97);
     }
+
+    .action-btn-secondary {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .action-btn-secondary:hover { background: var(--border); }
 
     /* ── EMPTY STATE ── */
     .empty {
@@ -497,7 +514,7 @@
         <div class="modal-title" id="modal-title"></div>
         <div class="modal-watched" id="modal-watched"></div>
         
-        <div id="modal-actions"></div>
+        <div id="modal-actions" class="modal-actions"></div>
         
       </div>
     </div>
@@ -567,12 +584,36 @@
     document.getElementById("modal-watched").innerHTML =
       `<span>${watchedCount} de ${users.length}</span> usuários assistiram`;
 
-    // Botão do Miru injetado dinamicamente com o ID do anime
+    const legacyId = String(anime.id || "");
+    const anilistId = anime.anilistId || (/^\d+$/.test(legacyId) ? legacyId : null);
+    const malId = anime.malId || (legacyId.startsWith("mal_") ? legacyId.slice(4) : null);
+    const externalUrl = anilistId
+      ? `https://anilist.co/anime/${anilistId}`
+      : malId ? `https://myanimelist.net/anime/${malId}` : null;
+    const externalLabel = anilistId ? "Ver no AniList" : "Ver no MyAnimeList";
+
     document.getElementById("modal-actions").innerHTML = `
-      <a href="miru://anime/${anime.id}" class="miru-btn">
-        ▶ Assistir no Miru
-      </a>
+      ${externalUrl ? `<a href="${externalUrl}" target="_blank" rel="noopener noreferrer" class="action-btn">${externalLabel}</a>` : ""}
+      <button type="button" class="action-btn action-btn-secondary" id="copy-anime-title">Copiar nome</button>
     `;
+
+    document.getElementById("copy-anime-title").addEventListener("click", async event => {
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(anime.title);
+      } catch (_) {
+        const input = document.createElement("textarea");
+        input.value = anime.title;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+      }
+      button.textContent = "Nome copiado!";
+      setTimeout(() => { button.textContent = "Copiar nome"; }, 1600);
+    });
 
     const body = document.getElementById("modal-body");
     body.innerHTML = users.map(u => {
