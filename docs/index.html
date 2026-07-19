@@ -370,6 +370,30 @@
 
     .modal-close:hover { color: var(--text); }
 
+    /* ── BOTÃO MIRU ── */
+    .miru-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      margin-top: 10px;
+      transition: background .2s, transform .1s;
+    }
+
+    .miru-btn:hover {
+      background: var(--accent2);
+    }
+    
+    .miru-btn:active {
+      transform: scale(0.97);
+    }
+
     /* ── EMPTY STATE ── */
     .empty {
       grid-column: 1/-1;
@@ -472,6 +496,9 @@
       <div class="modal-info">
         <div class="modal-title" id="modal-title"></div>
         <div class="modal-watched" id="modal-watched"></div>
+        
+        <div id="modal-actions"></div>
+        
       </div>
     </div>
     <div class="modal-body" id="modal-body"></div>
@@ -539,6 +566,13 @@
     const watchedCount = users.filter(u => anime.statuses[u] === "Assistido").length;
     document.getElementById("modal-watched").innerHTML =
       `<span>${watchedCount} de ${users.length}</span> usuários assistiram`;
+
+    // Botão do Miru injetado dinamicamente com o ID do anime
+    document.getElementById("modal-actions").innerHTML = `
+      <a href="miru://anime/${anime.id}" class="miru-btn">
+        ▶ Assistir no Miru
+      </a>
+    `;
 
     const body = document.getElementById("modal-body");
     body.innerHTML = users.map(u => {
