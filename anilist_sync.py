@@ -166,6 +166,7 @@ query ($username: String) {
         status
         media {
           id
+          idMal
           title {
             romaji
             english
@@ -177,6 +178,19 @@ query ($username: String) {
           }
         }
       }
+    }
+  }
+}
+"""
+
+MAL_TO_ANILIST_QUERY = """
+query ($malIds: [Int]) {
+  Page(page: 1, perPage: 50) {
+    media(type: ANIME, idMal_in: $malIds) {
+      id
+      idMal
+      title { romaji english }
+      coverImage { extraLarge large medium }
     }
   }
 }
@@ -245,9 +259,61 @@ def fetch_anilist_user(username):
                 "status": STATUS_MAP_ANILIST.get(entry.get("status"), "-"),
                 "cover": cover,
                 "source": "AniList",
+                "anilist_id": mid,
+                "mal_id": media.get("idMal"),
             }
 
     return anime_map
+
+
+def map_mal_entries_to_anilist(anime_map):
+    """Converte chaves do MAL para IDs AniList em lotes, quando houver correspondencia."""
+    mal_ids = [info.get("mal_id") for info in anime_map.values() if info.get("mal_id")]
+    mapped_media = {}
+
+    for start in range(0, len(mal_ids), 50):
+        chunk = mal_ids[start:start + 50]
+        try:
+            r = requests.post(
+                ANILIST_API_URL,
+                json={"query": MAL_TO_ANILIST_QUERY, "variables": {"malIds": chunk}},
+                headers={"Content-Type": "application/json", "Accept": "application/json"},
+                timeout=30,
+            )
+            r.raise_for_status()
+            data = r.json()
+            if data.get("errors"):
+                print(f"  AniList nao conseguiu mapear IDs MAL: {data['errors']}")
+                continue
+            for media in data.get("data", {}).get("Page", {}).get("media", []):
+                if media.get("idMal") and media.get("id"):
+                    mapped_media[media["idMal"]] = media
+        except requests.RequestException as e:
+            print(f"  Erro ao mapear IDs MAL no AniList: {e}")
+        time.sleep(0.5)
+
+    normalized = {}
+    for old_key, info in anime_map.items():
+        media = mapped_media.get(info.get("mal_id"))
+        if not media:
+            normalized[old_key] = info
+            continue
+
+        info["anilist_id"] = media["id"]
+        title_data = media.get("title") or {}
+        info["title"] = title_data.get("english") or title_data.get("romaji") or info["title"]
+        cover_data = media.get("coverImage") or {}
+        info["cover"] = (
+            cover_data.get("extraLarge")
+            or cover_data.get("large")
+            or cover_data.get("medium")
+            or info["cover"]
+        )
+        normalized[media["id"]] = info
+
+    mapped_count = sum(1 for info in normalized.values() if info.get("anilist_id"))
+    print(f"  MAL -> AniList: {mapped_count}/{len(anime_map)} titulos mapeados")
+    return normalized
 
 
 # ─────────────────────────────────────────────
@@ -404,6 +470,8 @@ def fetch_mal_user(username):
                 "status": status,
                 "cover": cover,
                 "source": "MyAnimeList",
+                "anilist_id": None,
+                "mal_id": mal_id,
             }
 
         offset += limit
@@ -434,7 +502,7 @@ def fetch_all_users(verbose=True):
         if verbose:
             print(f"  [MAL]     -> {u}...", flush=True)
 
-        all_data[u] = fetch_mal_user(u)
+        all_data[u] = map_mal_entries_to_anilist(fetch_mal_user(u))
 
         if verbose:
             print(f"  [MAL]     -> {u}: {len(all_data[u])} animes")
@@ -477,6 +545,16 @@ def get_source_for_mid(all_data, mid):
     return ""
 
 
+def get_external_ids_for_mid(all_data, mid):
+    anilist_id = None
+    mal_id = None
+    for anime_map in all_data.values():
+        if mid in anime_map:
+            anilist_id = anilist_id or anime_map[mid].get("anilist_id")
+            mal_id = mal_id or anime_map[mid].get("mal_id")
+    return anilist_id, mal_id
+
+
 def write_site_data_json(master, grid, analytics, all_data, last_updated):
     """
     Gera o docs/data.json usado pelo site estático do GitHub Pages.
@@ -509,6 +587,7 @@ def write_site_data_json(master, grid, analytics, all_data, last_updated):
     animes = []
 
     for mid in sorted_ids:
+        anilist_id, mal_id = get_external_ids_for_mid(all_data, mid)
         statuses = {
             u: grid[mid].get(u, "-")
             for u in USERNAMES
@@ -516,6 +595,8 @@ def write_site_data_json(master, grid, analytics, all_data, last_updated):
 
         animes.append({
             "id": str(mid),
+            "anilistId": anilist_id,
+            "malId": mal_id,
             "title": master[mid],
             "cover": get_cover_for_mid(all_data, mid),
             "source": get_source_for_mid(all_data, mid),
