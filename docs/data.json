@@ -1,5 +1,5 @@
 {
-  "updated": "21/07/2026  05:14",
+  "updated": "21/07/2026  08:02",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -14834,6 +14834,26 @@
       }
     },
     {
+      "id": "759",
+      "anilistId": 759,
+      "malId": 759,
+      "title": "Tokyo Godfathers",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx759-XSKBju6xutdR.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "6211",
       "anilistId": 6211,
       "malId": 6211,
@@ -19215,7 +19235,7 @@
     }
   ],
   "summary": {
-    "total_unique": 960,
+    "total_unique": 961,
     "all_watched_by_all": 0
   }
 }
