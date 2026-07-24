@@ -1,5 +1,5 @@
 {
-  "updated": "24/07/2026  05:14",
+  "updated": "24/07/2026  07:57",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -13,46 +13,6 @@
     "KakaCrads"
   ],
   "animes": [
-    {
-      "id": "1535",
-      "anilistId": 1535,
-      "malId": 1535,
-      "title": "Death Note",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-kUgkcrfOrkUM.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "Assistido",
-        "Dioo": "Planejando",
-        "Gumya": "Assistido",
-        "Jotalhos": "Assistido",
-        "niccname": "Assistido",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "Assistido",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "20474",
-      "anilistId": 20474,
-      "malId": 20899,
-      "title": "JoJo's Bizarre Adventure: Stardust Crusaders",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20474-xuqem5GBlBtb.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "Assistido",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "Assistido",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
-      }
-    },
     {
       "id": "9756",
       "anilistId": 9756,
@@ -74,54 +34,34 @@
       }
     },
     {
-      "id": "16498",
-      "anilistId": 16498,
-      "malId": 16498,
-      "title": "Attack on Titan",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
+      "id": "1535",
+      "anilistId": 1535,
+      "malId": 1535,
+      "title": "Death Note",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-kUgkcrfOrkUM.jpg",
       "source": "AniList",
       "statuses": {
         "CianBrz": "Assistido",
         "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
+        "Dioo": "Planejando",
         "Gumya": "Assistido",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "11061",
-      "anilistId": 11061,
-      "malId": 11061,
-      "title": "Hunter x Hunter (2011)",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11061-y5gsT1hoHuHw.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "Assistindo",
         "Jotalhos": "Assistido",
         "niccname": "Assistido",
         "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
-      "id": "14719",
-      "anilistId": 14719,
-      "malId": 14719,
-      "title": "JoJo's Bizarre Adventure (TV)",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14719-VT5dRzTBSZ0w.jpg",
+      "id": "20474",
+      "anilistId": 20474,
+      "malId": 20899,
+      "title": "JoJo's Bizarre Adventure: Stardust Crusaders",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20474-xuqem5GBlBtb.jpg",
       "source": "AniList",
       "statuses": {
-        "CianBrz": "Planejando",
+        "CianBrz": "Assistido",
         "BingoRTv": "Assistido",
         "Dioo": "Assistido",
         "Gumya": "-",
@@ -130,7 +70,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -174,23 +114,23 @@
       }
     },
     {
-      "id": "20",
-      "anilistId": 20,
-      "malId": 20,
-      "title": "Naruto",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20-dE6UHbFFg1A5.jpg",
+      "id": "16498",
+      "anilistId": 16498,
+      "malId": 16498,
+      "title": "Attack on Titan",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
       "source": "AniList",
       "statuses": {
-        "CianBrz": "-",
+        "CianBrz": "Assistido",
         "BingoRTv": "Assistido",
         "Dioo": "Assistido",
         "Gumya": "Assistido",
         "Jotalhos": "Assistido",
-        "niccname": "Assistido",
-        "ViniAxd": "-",
-        "SleepyGT": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
         "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -214,43 +154,43 @@
       }
     },
     {
-      "id": "21450",
-      "anilistId": 21450,
-      "malId": 31933,
-      "title": "JoJo's Bizarre Adventure: Diamond is Unbreakable",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21450-D7XFwEQjZ5GA.jpg",
+      "id": "11061",
+      "anilistId": 11061,
+      "malId": 11061,
+      "title": "Hunter x Hunter (2011)",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11061-y5gsT1hoHuHw.png",
       "source": "AniList",
       "statuses": {
         "CianBrz": "Assistido",
         "BingoRTv": "-",
         "Dioo": "Assistido",
-        "Gumya": "-",
+        "Gumya": "Assistindo",
         "Jotalhos": "Assistido",
         "niccname": "Assistido",
-        "ViniAxd": "Assistindo",
+        "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
-      "id": "20799",
-      "anilistId": 20799,
-      "malId": 26055,
-      "title": "JoJo's Bizarre Adventure: Stardust Crusaders - Battle in Egypt",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20799-S1eyqBDlx51E.jpg",
+      "id": "14719",
+      "anilistId": 14719,
+      "malId": 14719,
+      "title": "JoJo's Bizarre Adventure (TV)",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14719-VT5dRzTBSZ0w.jpg",
       "source": "AniList",
       "statuses": {
-        "CianBrz": "-",
+        "CianBrz": "Planejando",
         "BingoRTv": "Assistido",
         "Dioo": "Assistido",
         "Gumya": "-",
         "Jotalhos": "Assistido",
         "niccname": "Assistido",
         "ViniAxd": "Assistido",
-        "SleepyGT": "-",
+        "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -368,6 +308,26 @@
         "Jotalhos": "Assistido",
         "niccname": "-",
         "ViniAxd": "Assistido",
+        "SleepyGT": "Assistido",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "20",
+      "anilistId": 20,
+      "malId": 20,
+      "title": "Naruto",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20-dE6UHbFFg1A5.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "Assistido",
+        "Jotalhos": "Assistido",
+        "niccname": "Assistido",
+        "ViniAxd": "-",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
         "KakaCrads": "-"
@@ -574,6 +534,46 @@
       }
     },
     {
+      "id": "21450",
+      "anilistId": 21450,
+      "malId": 31933,
+      "title": "JoJo's Bizarre Adventure: Diamond is Unbreakable",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21450-D7XFwEQjZ5GA.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "Assistido",
+        "ViniAxd": "Assistindo",
+        "SleepyGT": "Assistido",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "20799",
+      "anilistId": 20799,
+      "malId": 26055,
+      "title": "JoJo's Bizarre Adventure: Stardust Crusaders - Battle in Egypt",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20799-S1eyqBDlx51E.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "Assistido",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "125367",
       "anilistId": 125367,
       "malId": 43608,
@@ -651,26 +651,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "1735",
-      "anilistId": 1735,
-      "malId": 1735,
-      "title": "Naruto: Shippuden",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1735-kGfVm0YqCPcu.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "Assistindo",
-        "Jotalhos": "Assistido",
-        "niccname": "Assistido",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -1150,7 +1130,7 @@
         "ViniAxd": "-",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Assistindo"
+        "KakaCrads": "-"
       }
     },
     {
@@ -1210,7 +1190,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -1269,6 +1249,26 @@
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "Assistido",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "1735",
+      "anilistId": 1735,
+      "malId": 1735,
+      "title": "Naruto: Shippuden",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1735-kGfVm0YqCPcu.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "Assistindo",
+        "Jotalhos": "Assistido",
+        "niccname": "Assistido",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
         "Cafito": "Assistido",
         "KakaCrads": "-"
       }
@@ -1454,26 +1454,6 @@
       }
     },
     {
-      "id": "20678",
-      "anilistId": 20678,
-      "malId": 23233,
-      "title": "The Testament of Sister New Devil",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20678-58D9Yhi4GcH2.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "4224",
       "anilistId": 4224,
       "malId": 4224,
@@ -1591,26 +1571,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "269",
-      "anilistId": 269,
-      "malId": 269,
-      "title": "Bleach",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx269-d2GmRkJbMopq.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "Assistido",
-        "Dioo": "-",
-        "Gumya": "Assistindo",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -1934,26 +1894,6 @@
       }
     },
     {
-      "id": "5114",
-      "anilistId": 5114,
-      "malId": 5114,
-      "title": "Fullmetal Alchemist: Brotherhood",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx5114-nSWCgQlmOMtj.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Pausado",
-        "Gumya": "Assistido",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "Planejando",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "11617",
       "anilistId": 11617,
       "malId": 11617,
@@ -2051,26 +1991,6 @@
         "SleepyGT": "-",
         "Cafito": "Assistido",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "18679",
-      "anilistId": 18679,
-      "malId": 18679,
-      "title": "Kill la Kill",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b18679-lbkq7iYESoFW.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Dropado",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "Assistido",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -2191,26 +2111,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "13601",
-      "anilistId": 13601,
-      "malId": 13601,
-      "title": "PSYCHO-PASS",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13601-i42VFuHpqEOJ.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "Assistido",
-        "Jotalhos": "Planejando",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -2374,23 +2274,23 @@
       }
     },
     {
-      "id": "20789",
-      "anilistId": 20789,
-      "malId": 23755,
-      "title": "The Seven Deadly Sins",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20789-Ma5ouSYPkru9.jpg",
+      "id": "20678",
+      "anilistId": 20678,
+      "malId": 23233,
+      "title": "The Testament of Sister New Devil",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20678-58D9Yhi4GcH2.png",
       "source": "AniList",
       "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "Assistido",
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
         "Dioo": "Assistido",
         "Gumya": "-",
-        "Jotalhos": "-",
+        "Jotalhos": "Assistido",
         "niccname": "-",
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -2794,6 +2694,26 @@
       }
     },
     {
+      "id": "269",
+      "anilistId": 269,
+      "malId": 269,
+      "title": "Bleach",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx269-d2GmRkJbMopq.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "-",
+        "Gumya": "Assistindo",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "116674",
       "anilistId": 116674,
       "malId": 41467,
@@ -2851,46 +2771,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "1575",
-      "anilistId": 1575,
-      "malId": 1575,
-      "title": "Code Geass: Lelouch of the Rebellion",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1575-hsmWM2ydNm1m.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "2904",
-      "anilistId": 2904,
-      "malId": 2904,
-      "title": "Code Geass: Lelouch of the Rebellion R2",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2904-Fet9Q33suC7G.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "Assistindo",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -3154,6 +3034,26 @@
       }
     },
     {
+      "id": "5114",
+      "anilistId": 5114,
+      "malId": 5114,
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx5114-nSWCgQlmOMtj.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Pausado",
+        "Gumya": "Assistido",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "137877",
       "anilistId": 137877,
       "malId": 49605,
@@ -3354,6 +3254,26 @@
       }
     },
     {
+      "id": "18679",
+      "anilistId": 18679,
+      "malId": 18679,
+      "title": "Kill la Kill",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b18679-lbkq7iYESoFW.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Dropado",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "102976",
       "anilistId": 102976,
       "malId": 38040,
@@ -3371,26 +3291,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "14741",
-      "anilistId": 14741,
-      "malId": 14741,
-      "title": "Love, Chunibyo & Other Delusions",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14741-CGXEIeUe2roA.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -3514,26 +3414,6 @@
       }
     },
     {
-      "id": "9181",
-      "anilistId": 9181,
-      "malId": 9181,
-      "title": "Motto To Love Ru",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/9181.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "139630",
       "anilistId": 139630,
       "malId": 49918,
@@ -3571,46 +3451,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "14813",
-      "anilistId": 14813,
-      "malId": 14813,
-      "title": "My Teen Romantic Comedy SNAFU",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14813-3mNvcKNEQcDs.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "20698",
-      "anilistId": 20698,
-      "malId": 23847,
-      "title": "My Teen Romantic Comedy SNAFU TOO!",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20698-YZIYor2zW3Ta.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -3814,6 +3654,26 @@
       }
     },
     {
+      "id": "13601",
+      "anilistId": 13601,
+      "malId": 13601,
+      "title": "PSYCHO-PASS",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13601-i42VFuHpqEOJ.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "Assistido",
+        "Jotalhos": "Planejando",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "104157",
       "anilistId": 104157,
       "malId": 38329,
@@ -3831,26 +3691,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "1604",
-      "anilistId": 1604,
-      "malId": 1604,
-      "title": "REBORN!",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1604-W2q38L4OCGLI.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Pausado",
-        "Gumya": "Assistido",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -4054,26 +3894,6 @@
       }
     },
     {
-      "id": "13759",
-      "anilistId": 13759,
-      "malId": 13759,
-      "title": "The Pet Girl of Sakurasou",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13759-xNf0gJK4Axt2.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "108725",
       "anilistId": 108725,
       "malId": 39617,
@@ -4090,6 +3910,26 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "20789",
+      "anilistId": 20789,
+      "malId": 23755,
+      "title": "The Seven Deadly Sins",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20789-Ma5ouSYPkru9.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
         "KakaCrads": "-"
       }
     },
@@ -4114,46 +3954,6 @@
       }
     },
     {
-      "id": "3455",
-      "anilistId": 3455,
-      "malId": 3455,
-      "title": "To Love Ru",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3455-oNiJmsZZTAAj.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "13663",
-      "anilistId": 13663,
-      "malId": 13663,
-      "title": "To Love Ru Darkness",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13663-kpsCFSRAutWM.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "114535",
       "anilistId": 114535,
       "malId": 41025,
@@ -4170,7 +3970,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "Assistido",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -4490,27 +4290,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
-      }
-    },
-    {
-      "id": "6347",
-      "anilistId": 6347,
-      "malId": 6347,
-      "title": "Baka and Test - Summon the Beasts",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx6347-DCSHLkCY7UT3.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -4590,7 +4370,7 @@
         "ViniAxd": "-",
         "SleepyGT": "Assistido",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -4665,6 +4445,46 @@
         "BingoRTv": "-",
         "Dioo": "Assistido",
         "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "1575",
+      "anilistId": 1575,
+      "malId": 1575,
+      "title": "Code Geass: Lelouch of the Rebellion",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1575-hsmWM2ydNm1m.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "2904",
+      "anilistId": 2904,
+      "malId": 2904,
+      "title": "Code Geass: Lelouch of the Rebellion R2",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2904-Fet9Q33suC7G.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "Assistindo",
         "Jotalhos": "Assistido",
         "niccname": "-",
         "ViniAxd": "-",
@@ -4811,26 +4631,6 @@
         "SleepyGT": "-",
         "Cafito": "Assistido",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "552",
-      "anilistId": 552,
-      "malId": 552,
-      "title": "Digimon: Digital Monsters",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx552-zad0ts5hylQJ.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "Assistido",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -5270,7 +5070,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "Assistido",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -5734,6 +5534,26 @@
       }
     },
     {
+      "id": "14741",
+      "anilistId": 14741,
+      "malId": 14741,
+      "title": "Love, Chunibyo & Other Delusions",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14741-CGXEIeUe2roA.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Planejando",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "18671",
       "anilistId": 18671,
       "malId": 18671,
@@ -5894,6 +5714,26 @@
       }
     },
     {
+      "id": "9181",
+      "anilistId": 9181,
+      "malId": 9181,
+      "title": "Motto To Love Ru",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/9181.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "16910",
       "anilistId": 16910,
       "malId": 16910,
@@ -5994,11 +5834,51 @@
       }
     },
     {
+      "id": "14813",
+      "anilistId": 14813,
+      "malId": 14813,
+      "title": "My Teen Romantic Comedy SNAFU",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14813-3mNvcKNEQcDs.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "108489",
       "anilistId": 108489,
       "malId": 39547,
       "title": "My Teen Romantic Comedy SNAFU Climax!",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108489-yGmYCE6dhFta.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "20698",
+      "anilistId": 20698,
+      "malId": 23847,
+      "title": "My Teen Romantic Comedy SNAFU TOO!",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20698-YZIYor2zW3Ta.png",
       "source": "AniList",
       "statuses": {
         "CianBrz": "-",
@@ -6234,6 +6114,26 @@
       }
     },
     {
+      "id": "1604",
+      "anilistId": 1604,
+      "malId": 1604,
+      "title": "REBORN!",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1604-W2q38L4OCGLI.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Pausado",
+        "Gumya": "Assistido",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "127399",
       "anilistId": 127399,
       "malId": 44942,
@@ -6291,26 +6191,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "1254",
-      "anilistId": 1254,
-      "malId": 1254,
-      "title": "Saint Seiya: Knights of the Zodiac",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/1254.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Planejando",
-        "Gumya": "Assistido",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -6511,26 +6391,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20455",
-      "anilistId": 20455,
-      "malId": 20555,
-      "title": "Soni-Ani: SUPER SONICO THE ANIMATION",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20455-idVtmB4eERac.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "Assistido",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -6914,26 +6774,6 @@
       }
     },
     {
-      "id": "15809",
-      "anilistId": 15809,
-      "malId": 15809,
-      "title": "The Devil is a Part-Timer!",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15809-ECv3HyOYJKrk.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "Planejando",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "7311",
       "anilistId": 7311,
       "malId": 7311,
@@ -7074,6 +6914,26 @@
       }
     },
     {
+      "id": "13759",
+      "anilistId": 13759,
+      "malId": 13759,
+      "title": "The Pet Girl of Sakurasou",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13759-xNf0gJK4Axt2.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "103572",
       "anilistId": 103572,
       "malId": 38101,
@@ -7174,66 +7034,6 @@
       }
     },
     {
-      "id": "8525",
-      "anilistId": 8525,
-      "malId": 8525,
-      "title": "The World God Only Knows",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8525-chaE9kM2x0w4.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "10080",
-      "anilistId": 10080,
-      "malId": 10080,
-      "title": "The World God Only Knows II",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10080-KdDI4cgYn3pq.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "16706",
-      "anilistId": 16706,
-      "malId": 16706,
-      "title": "The World God Only Knows: Goddesses",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16706-qMfhkWuHkWhX.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "21778",
       "anilistId": 21778,
       "malId": 33191,
@@ -7249,6 +7049,46 @@
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "3455",
+      "anilistId": 3455,
+      "malId": 3455,
+      "title": "To Love Ru",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3455-oNiJmsZZTAAj.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Planejando",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "13663",
+      "anilistId": 13663,
+      "malId": 13663,
+      "title": "To Love Ru Darkness",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13663-kpsCFSRAutWM.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -7270,7 +7110,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Assistindo"
+        "KakaCrads": "-"
       }
     },
     {
@@ -7391,26 +7231,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20627",
-      "anilistId": 20627,
-      "malId": 22663,
-      "title": "World Break: Aria of Curse for a Holy Swordsman",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20627-qAzYOBmxk5iS.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -7654,26 +7474,6 @@
       }
     },
     {
-      "id": "20785",
-      "anilistId": 20785,
-      "malId": 25397,
-      "title": "Absolute Duo",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20785-AsFpG5XMj7ip.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "11759",
       "anilistId": 11759,
       "malId": 11759,
@@ -7830,7 +7630,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -7864,6 +7664,26 @@
         "CianBrz": "-",
         "BingoRTv": "Assistido",
         "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "6347",
+      "anilistId": 6347,
+      "malId": 6347,
+      "title": "Baka and Test - Summon the Beasts",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx6347-DCSHLkCY7UT3.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
         "Gumya": "-",
         "Jotalhos": "-",
         "niccname": "-",
@@ -8151,26 +7971,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "11633",
-      "anilistId": 11633,
-      "malId": 11633,
-      "title": "Blood Lad",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11633-vIjtabJq64Xt.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -8794,26 +8594,6 @@
       }
     },
     {
-      "id": "15583",
-      "anilistId": 15583,
-      "malId": 15583,
-      "title": "Date A Live",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15583-Sxd2J4RJdRhj.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "145139",
       "anilistId": 145139,
       "malId": 51019,
@@ -8854,63 +8634,23 @@
       }
     },
     {
-      "id": "1132",
-      "anilistId": 1132,
-      "malId": 1132,
-      "title": "Digimon Frontier",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx1132-sAQyMO3rSg69.jpg",
-      "source": "MyAnimeList",
+      "id": "552",
+      "anilistId": 552,
+      "malId": 552,
+      "title": "Digimon: Digital Monsters",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx552-zad0ts5hylQJ.jpg",
+      "source": "AniList",
       "statuses": {
         "CianBrz": "-",
         "BingoRTv": "-",
         "Dioo": "-",
-        "Gumya": "-",
+        "Gumya": "Assistido",
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "874",
-      "anilistId": 874,
-      "malId": 874,
-      "title": "Digimon Tamers",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx874-3uug3PiSeyf7.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "1313",
-      "anilistId": 1313,
-      "malId": 1313,
-      "title": "Digimon: Digital Monsters 02",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx1313-oCvzzU6fiCZB.png",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -9971,26 +9711,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "15225",
-      "anilistId": 15225,
-      "malId": 15225,
-      "title": "Hentai Prince & the Stony Cat",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15225-wQg1w96ABj0p.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -11654,26 +11374,6 @@
       }
     },
     {
-      "id": "19221",
-      "anilistId": 19221,
-      "malId": 19221,
-      "title": "My Mental Choices Are Completely Interfering With My School Romantic Comedy",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx19221-gYYDXIVzas7u.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "18753",
       "anilistId": 18753,
       "malId": 18753,
@@ -11791,26 +11491,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "13367",
-      "anilistId": 13367,
-      "malId": 13367,
-      "title": "NAKAIMO - My Little Sister Is Among Them!",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13367-mjPgNBIcatlt.png",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -12050,7 +11730,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -12294,26 +11974,6 @@
       }
     },
     {
-      "id": "14199",
-      "anilistId": 14199,
-      "malId": 14199,
-      "title": "OniAi",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14199-NAejQzViXuR7.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "21647",
       "anilistId": 21647,
       "malId": 32729,
@@ -12331,46 +11991,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "8769",
-      "anilistId": 8769,
-      "malId": 8769,
-      "title": "Oreimo",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8769-Lat76qlOwdBN.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "13659",
-      "anilistId": 13659,
-      "malId": 13659,
-      "title": "Oreimo 2",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13659-dKbA53HH9vwR.png",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -12934,26 +12554,6 @@
       }
     },
     {
-      "id": "15315",
-      "anilistId": 15315,
-      "malId": 15315,
-      "title": "Problem Children Are Coming From Another World, Aren't They?",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15315-mvKPcy8Z2QkB.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "10519",
       "anilistId": 10519,
       "malId": 10519,
@@ -12971,26 +12571,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20964",
-      "anilistId": 20964,
-      "malId": 28617,
-      "title": "PUNCH LINE",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b20964-UwNBrnI4p03P.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -13091,26 +12671,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "17777",
-      "anilistId": 17777,
-      "malId": 17777,
-      "title": "Recently, My Sister Is Unusual",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx17777-JyiQrGXjw0s0.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -13354,23 +12914,23 @@
       }
     },
     {
-      "id": "12929",
-      "anilistId": 12929,
-      "malId": 12929,
-      "title": "Saint Seiya Omega",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx12929-CMxtDxuPwJmp.jpg",
+      "id": "1254",
+      "anilistId": 1254,
+      "malId": 1254,
+      "title": "Saint Seiya: Knights of the Zodiac",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/1254.jpg",
       "source": "AniList",
       "statuses": {
         "CianBrz": "-",
         "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "Assistindo",
+        "Dioo": "Planejando",
+        "Gumya": "Assistido",
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Assistido"
+        "KakaCrads": "-"
       }
     },
     {
@@ -13451,26 +13011,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20047",
-      "anilistId": 20047,
-      "malId": 20047,
-      "title": "Sakura Trick",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20047-QcFqHoZNuCIH.png",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -13874,6 +13414,26 @@
       }
     },
     {
+      "id": "20455",
+      "anilistId": 20455,
+      "malId": 20555,
+      "title": "Soni-Ani: SUPER SONICO THE ANIMATION",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20455-idVtmB4eERac.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "132126",
       "anilistId": 132126,
       "malId": 48849,
@@ -14051,26 +13611,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "16009",
-      "anilistId": 16009,
-      "malId": 16009,
-      "title": "Sunday Without God",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16009-Sjn9slY4IsjE.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -14349,6 +13889,26 @@
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "15809",
+      "anilistId": 15809,
+      "malId": 15809,
+      "title": "The Devil is a Part-Timer!",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15809-ECv3HyOYJKrk.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -14654,6 +14214,46 @@
       }
     },
     {
+      "id": "8525",
+      "anilistId": 8525,
+      "malId": 8525,
+      "title": "The World God Only Knows",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8525-chaE9kM2x0w4.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "10080",
+      "anilistId": 10080,
+      "malId": 10080,
+      "title": "The World God Only Knows II",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10080-KdDI4cgYn3pq.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "10805",
       "anilistId": 10805,
       "malId": 10805,
@@ -14679,6 +14279,26 @@
       "malId": 9675,
       "title": "The World God Only Knows: Flag 0",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/9675.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "16706",
+      "anilistId": 16706,
+      "malId": 16706,
+      "title": "The World God Only Knows: Goddesses",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16706-qMfhkWuHkWhX.jpg",
       "source": "AniList",
       "statuses": {
         "CianBrz": "-",
@@ -15454,6 +15074,26 @@
       }
     },
     {
+      "id": "20627",
+      "anilistId": 20627,
+      "malId": 22663,
+      "title": "World Break: Aria of Curse for a Holy Swordsman",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20627-qAzYOBmxk5iS.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "21764",
       "anilistId": 21764,
       "malId": 33094,
@@ -15471,26 +15111,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "7817",
-      "anilistId": 7817,
-      "malId": 7817,
-      "title": "Yamada's First Time: B Gata H Kei",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx7817-6kYE5LRNoL97.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -15971,26 +15591,6 @@
         "SleepyGT": "-",
         "Cafito": "Planejando",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "9513",
-      "anilistId": 9513,
-      "malId": 9513,
-      "title": "Beelzebub",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx9513-is6YiSgKbyQX.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Planejando"
       }
     },
     {
@@ -17254,26 +16854,6 @@
       }
     },
     {
-      "id": "12031",
-      "anilistId": 12031,
-      "malId": 12031,
-      "title": "Kingdom",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx12031-1nVQa5nXPt48.png",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Planejando"
-      }
-    },
-    {
       "id": "114448",
       "anilistId": 114448,
       "malId": 36040,
@@ -17790,7 +17370,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Assistindo"
+        "KakaCrads": "-"
       }
     },
     {
@@ -17870,7 +17450,7 @@
         "ViniAxd": "Pausado",
         "SleepyGT": "-",
         "Cafito": "Assistindo",
-        "KakaCrads": "Assistindo"
+        "KakaCrads": "-"
       }
     },
     {
@@ -18150,27 +17730,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Assistindo"
-      }
-    },
-    {
-      "id": "108307",
-      "anilistId": 108307,
-      "malId": 39491,
-      "title": "PSYCHO-PASS 3",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108307-2vfdTNsxoS8H.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistindo"
+        "KakaCrads": "-"
       }
     },
     {
@@ -18346,6 +17906,26 @@
         "Dioo": "-",
         "Gumya": "-",
         "Jotalhos": "Planejando",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "12929",
+      "anilistId": 12929,
+      "malId": 12929,
+      "title": "Saint Seiya Omega",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx12929-CMxtDxuPwJmp.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "Assistindo",
+        "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
@@ -19010,7 +18590,7 @@
         "ViniAxd": "Dropado",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -19174,26 +18754,6 @@
       }
     },
     {
-      "id": "8861",
-      "anilistId": 8861,
-      "malId": 8861,
-      "title": "Yosuga no Sora: In Solitude Where We are Least Alone",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8861-DZKseZpdtBwp.jpg",
-      "source": "MyAnimeList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Planejando"
-      }
-    },
-    {
       "id": "184951",
       "anilistId": 184951,
       "malId": 60371,
@@ -19235,7 +18795,7 @@
     }
   ],
   "summary": {
-    "total_unique": 961,
+    "total_unique": 939,
     "all_watched_by_all": 0
   }
 }
