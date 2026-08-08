@@ -1,5 +1,5 @@
 {
-  "updated": "08/08/2026  14:23",
+  "updated": "08/08/2026  15:27",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -14534,6 +14534,26 @@
       }
     },
     {
+      "id": "177689",
+      "anilistId": 177689,
+      "malId": 58913,
+      "title": "The Summer Hikaru Died",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx177689-d0mB5nYgdnhi.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "7785",
       "anilistId": 7785,
       "malId": 7785,
@@ -16229,6 +16249,26 @@
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "207141",
+      "anilistId": 207141,
+      "malId": 63403,
+      "title": "Chainsmoker Cat",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx207141-h5q5KJPd6vaX.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistindo",
         "Cafito": "-",
         "KakaCrads": "-"
       }
@@ -19214,6 +19254,26 @@
       }
     },
     {
+      "id": "128757",
+      "anilistId": 128757,
+      "malId": 46488,
+      "title": "Young Ladies Don't Play Fighting Games",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx128757-Iqc6hTjEYIz4.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistindo",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "114072",
       "anilistId": 114072,
       "malId": 40145,
@@ -19235,7 +19295,7 @@
     }
   ],
   "summary": {
-    "total_unique": 961,
+    "total_unique": 964,
     "all_watched_by_all": 0
   }
 }
