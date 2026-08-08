@@ -1,5 +1,5 @@
 {
-  "updated": "07/08/2026  20:27",
+  "updated": "07/08/2026  22:07",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -71,26 +71,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "16498",
-      "anilistId": 16498,
-      "malId": 16498,
-      "title": "Attack on Titan",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "Assistido",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -191,6 +171,26 @@
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
         "KakaCrads": "Assistido"
+      }
+    },
+    {
+      "id": "16498",
+      "anilistId": 16498,
+      "malId": 16498,
+      "title": "Attack on Titan",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "Assistido",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
       }
     },
     {
@@ -1210,7 +1210,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
         "Cafito": "Assistido",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -1451,26 +1451,6 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20678",
-      "anilistId": 20678,
-      "malId": 23233,
-      "title": "The Testament of Sister New Devil",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20678-58D9Yhi4GcH2.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -2391,6 +2371,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "Assistido"
+      }
+    },
+    {
+      "id": "20678",
+      "anilistId": 20678,
+      "malId": 23233,
+      "title": "The Testament of Sister New Devil",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20678-58D9Yhi4GcH2.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
       }
     },
     {
@@ -3574,46 +3574,6 @@
       }
     },
     {
-      "id": "14813",
-      "anilistId": 14813,
-      "malId": 14813,
-      "title": "My Teen Romantic Comedy SNAFU",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14813-3mNvcKNEQcDs.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "20698",
-      "anilistId": 20698,
-      "malId": 23847,
-      "title": "My Teen Romantic Comedy SNAFU TOO!",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20698-YZIYor2zW3Ta.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistido",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "32",
       "anilistId": 32,
       "malId": 32,
@@ -4054,26 +4014,6 @@
       }
     },
     {
-      "id": "13759",
-      "anilistId": 13759,
-      "malId": 13759,
-      "title": "The Pet Girl of Sakurasou",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13759-xNf0gJK4Axt2.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "108725",
       "anilistId": 108725,
       "malId": 39617,
@@ -4114,46 +4054,6 @@
       }
     },
     {
-      "id": "3455",
-      "anilistId": 3455,
-      "malId": 3455,
-      "title": "To Love Ru",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3455-oNiJmsZZTAAj.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "13663",
-      "anilistId": 13663,
-      "malId": 13663,
-      "title": "To Love Ru Darkness",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13663-kpsCFSRAutWM.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
       "id": "114535",
       "anilistId": 114535,
       "malId": 41025,
@@ -4170,7 +4070,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "Assistido",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -4490,7 +4390,7 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -4590,7 +4490,7 @@
         "ViniAxd": "-",
         "SleepyGT": "Assistido",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -5270,7 +5170,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "Assistido",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -5994,11 +5894,51 @@
       }
     },
     {
+      "id": "14813",
+      "anilistId": 14813,
+      "malId": 14813,
+      "title": "My Teen Romantic Comedy SNAFU",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14813-3mNvcKNEQcDs.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "108489",
       "anilistId": 108489,
       "malId": 39547,
       "title": "My Teen Romantic Comedy SNAFU Climax!",
       "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108489-yGmYCE6dhFta.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "20698",
+      "anilistId": 20698,
+      "malId": 23847,
+      "title": "My Teen Romantic Comedy SNAFU TOO!",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20698-YZIYor2zW3Ta.png",
       "source": "AniList",
       "statuses": {
         "CianBrz": "-",
@@ -6511,26 +6451,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20455",
-      "anilistId": 20455,
-      "malId": 20555,
-      "title": "Soni-Ani: SUPER SONICO THE ANIMATION",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20455-idVtmB4eERac.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "Assistido",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -7074,6 +6994,26 @@
       }
     },
     {
+      "id": "13759",
+      "anilistId": 13759,
+      "malId": 13759,
+      "title": "The Pet Girl of Sakurasou",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13759-xNf0gJK4Axt2.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "Assistido",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "103572",
       "anilistId": 103572,
       "malId": 38101,
@@ -7254,6 +7194,46 @@
       }
     },
     {
+      "id": "3455",
+      "anilistId": 3455,
+      "malId": 3455,
+      "title": "To Love Ru",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3455-oNiJmsZZTAAj.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Planejando",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "13663",
+      "anilistId": 13663,
+      "malId": 13663,
+      "title": "To Love Ru Darkness",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13663-kpsCFSRAutWM.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "20995",
       "anilistId": 20995,
       "malId": 28979,
@@ -7391,26 +7371,6 @@
         "SleepyGT": "Assistido",
         "Cafito": "-",
         "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "20627",
-      "anilistId": 20627,
-      "malId": 22663,
-      "title": "World Break: Aria of Curse for a Holy Swordsman",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20627-qAzYOBmxk5iS.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "Assistido"
       }
     },
     {
@@ -7830,7 +7790,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -7851,6 +7811,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_16498",
+      "anilistId": null,
+      "malId": 16498,
+      "title": "Attack on Titan",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/10/47347.jpg?s=0c5745fd0b1559ebf88af1c403b4e288",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
       }
     },
     {
@@ -11674,6 +11654,26 @@
       }
     },
     {
+      "id": "mal_14813",
+      "anilistId": null,
+      "malId": 14813,
+      "title": "My Teen Romantic Comedy SNAFU",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1786/120117.jpg?s=df260e70167afdeed0cc3f40ca5b9492",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
+      }
+    },
+    {
       "id": "18753",
       "anilistId": 18753,
       "malId": 18753,
@@ -11691,6 +11691,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_23847",
+      "anilistId": null,
+      "malId": 23847,
+      "title": "My Teen Romantic Comedy SNAFU TOO!",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/11/75376.jpg?s=f8db3fbde0848f6200f4826d99df69fc",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
       }
     },
     {
@@ -12050,7 +12070,7 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "Planejando"
+        "KakaCrads": "-"
       }
     },
     {
@@ -13874,6 +13894,46 @@
       }
     },
     {
+      "id": "20455",
+      "anilistId": 20455,
+      "malId": 20555,
+      "title": "Soni-Ani: SUPER SONICO THE ANIMATION",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20455-idVtmB4eERac.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_20555",
+      "anilistId": null,
+      "malId": 20555,
+      "title": "Soni-Ani: Super Sonico The Animation",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/3/56987.jpg?s=c94c85409b1389c1a97a8dc1730922db",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
+      }
+    },
+    {
       "id": "132126",
       "anilistId": 132126,
       "malId": 48849,
@@ -14474,6 +14534,26 @@
       }
     },
     {
+      "id": "mal_13759",
+      "anilistId": null,
+      "malId": 13759,
+      "title": "The Pet Girl of Sakurasou",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/4/43643.jpg?s=4082d6cd01ab375b62de7b72caa0b252",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
+      }
+    },
+    {
       "id": "163327",
       "anilistId": 163327,
       "malId": 54915,
@@ -14551,6 +14631,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_23233",
+      "anilistId": null,
+      "malId": 23233,
+      "title": "The Testament of Sister New Devil",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1654/112033.jpg?s=d9c1d7a83be410ab801a111cfb71869b",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
       }
     },
     {
@@ -14711,6 +14811,46 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_3455",
+      "anilistId": null,
+      "malId": 3455,
+      "title": "To Love Ru",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1292/147431.jpg?s=5de8696b52e14f85d3458a4d3b7f3e35",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
+      }
+    },
+    {
+      "id": "mal_13663",
+      "anilistId": null,
+      "malId": 13663,
+      "title": "To LOVE Ru Darkness",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/8/42217.jpg?s=a9f6075ae516f55add9473803e1c473a",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
       }
     },
     {
@@ -15454,6 +15594,46 @@
       }
     },
     {
+      "id": "20627",
+      "anilistId": 20627,
+      "malId": 22663,
+      "title": "World Break: Aria of Curse for a Holy Swordsman",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20627-qAzYOBmxk5iS.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_22663",
+      "anilistId": null,
+      "malId": 22663,
+      "title": "World Break: Aria of Curse for a Holy Swordsman",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/7/71769.jpg?s=a0746d28327c06f0da942ca7193c495c",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Assistido"
+      }
+    },
+    {
       "id": "21764",
       "anilistId": 21764,
       "malId": 33094,
@@ -15774,6 +15954,26 @@
       }
     },
     {
+      "id": "mal_6547",
+      "anilistId": null,
+      "malId": 6547,
+      "title": "Angel Beats!",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1244/111115.jpg?s=c0caff58282618d69acc370cf98c01a0",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
+      }
+    },
+    {
       "id": "937",
       "anilistId": 937,
       "malId": 937,
@@ -15791,6 +15991,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_24833",
+      "anilistId": null,
+      "malId": 24833,
+      "title": "Assassination Classroom",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/5/75639.jpg?s=446c4a2d1f128c0d206af25d7e652b56",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
       }
     },
     {
@@ -15974,11 +16194,11 @@
       }
     },
     {
-      "id": "9513",
-      "anilistId": 9513,
+      "id": "mal_9513",
+      "anilistId": null,
       "malId": 9513,
       "title": "Beelzebub",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx9513-is6YiSgKbyQX.jpg",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/3/28013.jpg?s=860138493564e677215506d1ec985328",
       "source": "MyAnimeList",
       "statuses": {
         "CianBrz": "-",
@@ -16111,6 +16331,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_9919",
+      "anilistId": null,
+      "malId": 9919,
+      "title": "Blue Exorcist",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/10/75195.jpg?s=90ba7e5bcc72ee0f3beb395fbef0c92e",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
       }
     },
     {
@@ -16874,6 +17114,26 @@
       }
     },
     {
+      "id": "mal_31859",
+      "anilistId": null,
+      "malId": 31859,
+      "title": "Grimgar: Ashes and Illusions",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/13/77976.jpg?s=913d9c11ed773cc67e854d9efa8defa0",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
+      }
+    },
+    {
       "id": "387",
       "anilistId": 387,
       "malId": 387,
@@ -17254,11 +17514,11 @@
       }
     },
     {
-      "id": "12031",
-      "anilistId": 12031,
+      "id": "mal_12031",
+      "anilistId": null,
       "malId": 12031,
       "title": "Kingdom",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx12031-1nVQa5nXPt48.png",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/13/39511.jpg?s=6b919ff86c9e3796b8c3a2583ff4afc8",
       "source": "MyAnimeList",
       "statuses": {
         "CianBrz": "-",
@@ -17311,6 +17571,26 @@
         "SleepyGT": "-",
         "Cafito": "Planejando",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_30831",
+      "anilistId": null,
+      "malId": 30831,
+      "title": "KonoSuba: God's Blessing on This Wonderful World!",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1895/142748.jpg?s=3c36db103bf2d62af03c9812170f2d37",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
       }
     },
     {
@@ -17831,6 +18111,26 @@
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_11785",
+      "anilistId": null,
+      "malId": 11785,
+      "title": "Nyaruko: Crawling With Love!",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/6/49081.jpg?s=8facc6c78958c96072a127f471df6149",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
       }
     },
     {
@@ -18874,6 +19174,26 @@
       }
     },
     {
+      "id": "mal_41025",
+      "anilistId": null,
+      "malId": 41025,
+      "title": "To Your Eternity",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1880/118484.jpg?s=8a91ad10eef629d7ce90a6bead46c470",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "Planejando"
+      }
+    },
+    {
       "id": "138565",
       "anilistId": 138565,
       "malId": 49709,
@@ -19008,6 +19328,26 @@
         "Jotalhos": "-",
         "niccname": "-",
         "ViniAxd": "Dropado",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "mal_37521",
+      "anilistId": null,
+      "malId": 37521,
+      "title": "Vinland Saga",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/1500/103005.jpg?s=dda752dd4d154818e895e45bb098e1e6",
+      "source": "MyAnimeList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
         "KakaCrads": "Planejando"
@@ -19174,11 +19514,11 @@
       }
     },
     {
-      "id": "8861",
-      "anilistId": 8861,
+      "id": "mal_8861",
+      "anilistId": null,
       "malId": 8861,
-      "title": "Yosuga no Sora: In Solitude Where We are Least Alone",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8861-DZKseZpdtBwp.jpg",
+      "title": "Yosuga no Sora: In Solitude, Where We Are Least Alone",
+      "cover": "https://cdn.myanimelist.net/r/192x272/images/anime/5/76216.jpg?s=1d041d86fb23ea7efcb9e6f63bd93e78",
       "source": "MyAnimeList",
       "statuses": {
         "CianBrz": "-",
@@ -19235,7 +19575,7 @@
     }
   ],
   "summary": {
-    "total_unique": 961,
+    "total_unique": 978,
     "all_watched_by_all": 0
   }
 }
