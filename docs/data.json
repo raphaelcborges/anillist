@@ -1,5 +1,5 @@
 {
-  "updated": "13/08/2026  16:53",
+  "updated": "13/08/2026  17:35",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -14934,6 +14934,26 @@
       }
     },
     {
+      "id": "163144",
+      "anilistId": 163144,
+      "malId": 54863,
+      "title": "TRIGUN STARGAZE",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx163144-XdVwFRxPGY6j.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Planejando",
+        "BingoRTv": "Planejando",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "4106",
       "anilistId": 4106,
       "malId": 4106,
@@ -18930,26 +18950,6 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "Planejando",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "163144",
-      "anilistId": 163144,
-      "malId": 54863,
-      "title": "TRIGUN STARGAZE",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx163144-XdVwFRxPGY6j.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "Planejando",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "Assistindo",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
         "KakaCrads": "-"
       }
     },
