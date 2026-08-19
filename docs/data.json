@@ -1,5 +1,5 @@
 {
-  "updated": "19/08/2026  10:38",
+  "updated": "19/08/2026  12:24",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -10154,6 +10154,26 @@
       }
     },
     {
+      "id": "136",
+      "anilistId": 136,
+      "malId": 136,
+      "title": "Hunter x Hunter",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx136-gj0bbCpDNrKG.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "Assistindo",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "12189",
       "anilistId": 12189,
       "malId": 12189,
@@ -17106,26 +17126,6 @@
         "Dioo": "-",
         "Gumya": "-",
         "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "136",
-      "anilistId": 136,
-      "malId": 136,
-      "title": "Hunter x Hunter",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx136-gj0bbCpDNrKG.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "-",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "Assistindo",
-        "Jotalhos": "Assistindo",
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
