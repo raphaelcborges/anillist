@@ -1,5 +1,5 @@
 {
-  "updated": "22/08/2026  20:13",
+  "updated": "22/08/2026  21:56",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -1054,6 +1054,26 @@
       }
     },
     {
+      "id": "19603",
+      "anilistId": 19603,
+      "malId": 22297,
+      "title": "Fate/stay night: Unlimited Blade Works",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx19603-ycT0pyEgDVQu.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "21878",
       "anilistId": 21878,
       "malId": 33731,
@@ -1826,26 +1846,6 @@
         "Dioo": "Assistido",
         "Gumya": "-",
         "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "Assistido",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "19603",
-      "anilistId": 19603,
-      "malId": 22297,
-      "title": "Fate/stay night: Unlimited Blade Works",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx19603-ycT0pyEgDVQu.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistindo",
         "niccname": "-",
         "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
