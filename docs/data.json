@@ -1,5 +1,5 @@
 {
-  "updated": "25/08/2026  06:28",
+  "updated": "25/08/2026  07:24",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -17934,6 +17934,26 @@
       }
     },
     {
+      "id": "215855",
+      "anilistId": 215855,
+      "malId": 64858,
+      "title": "ONE PIECE FILM: GOD VALLEY",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b215855-z86bqRqVcr13.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Planejando",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "183423",
       "anilistId": 183423,
       "malId": 60108,
@@ -19295,7 +19315,7 @@
     }
   ],
   "summary": {
-    "total_unique": 964,
+    "total_unique": 965,
     "all_watched_by_all": 0
   }
 }
