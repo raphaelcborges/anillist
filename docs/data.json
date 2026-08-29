@@ -1,5 +1,5 @@
 {
-  "updated": "28/08/2026  17:35",
+  "updated": "28/08/2026  23:59",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -14754,6 +14754,26 @@
       }
     },
     {
+      "id": "183385",
+      "anilistId": 183385,
+      "malId": 60168,
+      "title": "This Monster Wants to Eat Me",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx183385-f1TgnttLckBT.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "21852",
       "anilistId": 21852,
       "malId": 31711,
@@ -19315,7 +19335,7 @@
     }
   ],
   "summary": {
-    "total_unique": 965,
+    "total_unique": 966,
     "all_watched_by_all": 0
   }
 }
