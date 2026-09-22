@@ -1,5 +1,5 @@
 {
-  "updated": "21/09/2026  21:29",
+  "updated": "22/09/2026  02:44",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -1874,6 +1874,26 @@
       }
     },
     {
+      "id": "166617",
+      "anilistId": 166617,
+      "malId": 55830,
+      "title": "Fate/strange Fake",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166617-34fpC9y47tTx.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "105310",
       "anilistId": 105310,
       "malId": 38671,
@@ -3083,26 +3103,6 @@
       "statuses": {
         "CianBrz": "-",
         "BingoRTv": "Assistido",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "166617",
-      "anilistId": 166617,
-      "malId": 55830,
-      "title": "Fate/strange Fake",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166617-34fpC9y47tTx.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
         "Dioo": "Assistido",
         "Gumya": "-",
         "Jotalhos": "-",
@@ -8690,6 +8690,26 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "195600",
+      "anilistId": 195600,
+      "malId": 62001,
+      "title": "Daemons of the Shadow Realm",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195600-moI0UFArtOme.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistindo",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Assistindo",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "Assistindo",
         "KakaCrads": "-"
       }
     },
@@ -16390,26 +16410,6 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "195600",
-      "anilistId": 195600,
-      "malId": 62001,
-      "title": "Daemons of the Shadow Realm",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195600-moI0UFArtOme.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistindo",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "Assistindo",
-        "niccname": "-",
-        "ViniAxd": "Assistindo",
-        "SleepyGT": "-",
-        "Cafito": "Assistindo",
         "KakaCrads": "-"
       }
     },
