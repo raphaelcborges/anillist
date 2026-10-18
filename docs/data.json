@@ -1,5 +1,5 @@
 {
-  "updated": "17/10/2026  20:41",
+  "updated": "17/10/2026  23:34",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -24,6 +24,26 @@
         "CianBrz": "Assistido",
         "BingoRTv": "Assistido",
         "Dioo": "Planejando",
+        "Gumya": "Assistido",
+        "Jotalhos": "Assistido",
+        "niccname": "Assistido",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "Assistido",
+        "Cafito": "Assistido",
+        "KakaCrads": "Assistido"
+      }
+    },
+    {
+      "id": "11061",
+      "anilistId": 11061,
+      "malId": 11061,
+      "title": "Hunter x Hunter (2011)",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11061-y5gsT1hoHuHw.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
         "Gumya": "Assistido",
         "Jotalhos": "Assistido",
         "niccname": "Assistido",
@@ -89,26 +109,6 @@
         "niccname": "-",
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
-        "Cafito": "Assistido",
-        "KakaCrads": "Assistido"
-      }
-    },
-    {
-      "id": "11061",
-      "anilistId": 11061,
-      "malId": 11061,
-      "title": "Hunter x Hunter (2011)",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11061-y5gsT1hoHuHw.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "Assistindo",
-        "Jotalhos": "Assistido",
-        "niccname": "Assistido",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "Assistido",
         "Cafito": "Assistido",
         "KakaCrads": "Assistido"
       }
@@ -1474,6 +1474,26 @@
       }
     },
     {
+      "id": "116006",
+      "anilistId": 116006,
+      "malId": 41353,
+      "title": "The God of High School",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116006-Wt8JSA1ZQxlM.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "Assistido",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "99263",
       "anilistId": 99263,
       "malId": 35790,
@@ -2330,26 +2350,6 @@
         "ViniAxd": "-",
         "SleepyGT": "Assistido",
         "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "116006",
-      "anilistId": 116006,
-      "malId": 41353,
-      "title": "The God of High School",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116006-Wt8JSA1ZQxlM.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "Assistindo",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "Assistido",
         "KakaCrads": "-"
       }
     },
@@ -4754,6 +4754,26 @@
       }
     },
     {
+      "id": "195600",
+      "anilistId": 195600,
+      "malId": 62001,
+      "title": "Daemons of the Shadow Realm",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195600-moI0UFArtOme.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistindo",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "Assistido",
+        "Jotalhos": "Assistindo",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "-",
+        "Cafito": "Assistindo",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "105190",
       "anilistId": 105190,
       "malId": 38656,
@@ -6050,6 +6070,26 @@
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
         "Cafito": "Planejando",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "10165",
+      "anilistId": 10165,
+      "malId": 10165,
+      "title": "Nichijou - My Ordinary Life",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10165-tw8Cz7K9tfVJ.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Pausado",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "Assistido",
+        "Jotalhos": "-",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "Planejando",
+        "Cafito": "-",
         "KakaCrads": "-"
       }
     },
@@ -8730,26 +8770,6 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "195600",
-      "anilistId": 195600,
-      "malId": 62001,
-      "title": "Daemons of the Shadow Realm",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195600-moI0UFArtOme.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistindo",
-        "BingoRTv": "-",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "Assistindo",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "-",
-        "Cafito": "Assistindo",
         "KakaCrads": "-"
       }
     },
@@ -11969,26 +11989,6 @@
         "niccname": "-",
         "ViniAxd": "Assistido",
         "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "10165",
-      "anilistId": 10165,
-      "malId": 10165,
-      "title": "Nichijou - My Ordinary Life",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10165-tw8Cz7K9tfVJ.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Pausado",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "Assistindo",
-        "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "Planejando",
         "Cafito": "-",
         "KakaCrads": "-"
       }
