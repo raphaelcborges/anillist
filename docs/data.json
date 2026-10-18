@@ -1,5 +1,5 @@
 {
-  "updated": "18/10/2026  16:10",
+  "updated": "18/10/2026  19:09",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -16634,6 +16634,26 @@
       }
     },
     {
+      "id": "206814",
+      "anilistId": 206814,
+      "malId": 63367,
+      "title": "Dragon Ball Super: Beerus",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx206814-PVVzRbf1IQpe.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "-",
+        "BingoRTv": "-",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Assistindo",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "206812",
       "anilistId": 206812,
       "malId": 63368,
@@ -19355,7 +19375,7 @@
     }
   ],
   "summary": {
-    "total_unique": 967,
+    "total_unique": 968,
     "all_watched_by_all": 0
   }
 }
