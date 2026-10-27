@@ -1,5 +1,5 @@
 {
-  "updated": "26/10/2026  17:15",
+  "updated": "26/10/2026  21:09",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -1094,6 +1094,26 @@
       }
     },
     {
+      "id": "166617",
+      "anilistId": 166617,
+      "malId": 55830,
+      "title": "Fate/strange Fake",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166617-34fpC9y47tTx.png",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "-",
+        "Dioo": "Assistido",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "Assistido",
+        "SleepyGT": "Assistido",
+        "Cafito": "-",
+        "KakaCrads": "-"
+      }
+    },
+    {
       "id": "21878",
       "anilistId": 21878,
       "malId": 33731,
@@ -1886,26 +1906,6 @@
         "Dioo": "Assistido",
         "Gumya": "-",
         "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "Assistido",
-        "SleepyGT": "Assistido",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "166617",
-      "anilistId": 166617,
-      "malId": 55830,
-      "title": "Fate/strange Fake",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166617-34fpC9y47tTx.png",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Assistido",
-        "BingoRTv": "-",
-        "Dioo": "Assistido",
-        "Gumya": "-",
-        "Jotalhos": "Assistindo",
         "niccname": "-",
         "ViniAxd": "Assistido",
         "SleepyGT": "Assistido",
