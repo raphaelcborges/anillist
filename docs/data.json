@@ -1,5 +1,5 @@
 {
-  "updated": "31/10/2026  15:59",
+  "updated": "31/10/2026  19:21",
   "users": [
     "CianBrz",
     "BingoRTv",
@@ -4570,6 +4570,26 @@
         "ViniAxd": "-",
         "SleepyGT": "-",
         "Cafito": "Assistido",
+        "KakaCrads": "-"
+      }
+    },
+    {
+      "id": "185874",
+      "anilistId": 185874,
+      "malId": 60636,
+      "title": "BLEACH: Thousand-Year Blood War - The Calamity",
+      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx185874-aU3e6tBT6wwA.jpg",
+      "source": "AniList",
+      "statuses": {
+        "CianBrz": "Assistido",
+        "BingoRTv": "Planejando",
+        "Dioo": "-",
+        "Gumya": "-",
+        "Jotalhos": "Assistido",
+        "niccname": "-",
+        "ViniAxd": "-",
+        "SleepyGT": "-",
+        "Cafito": "-",
         "KakaCrads": "-"
       }
     },
@@ -16206,26 +16226,6 @@
         "Dioo": "-",
         "Gumya": "Assistindo",
         "Jotalhos": "-",
-        "niccname": "-",
-        "ViniAxd": "-",
-        "SleepyGT": "-",
-        "Cafito": "-",
-        "KakaCrads": "-"
-      }
-    },
-    {
-      "id": "185874",
-      "anilistId": 185874,
-      "malId": 60636,
-      "title": "BLEACH: Thousand-Year Blood War - The Calamity",
-      "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx185874-aU3e6tBT6wwA.jpg",
-      "source": "AniList",
-      "statuses": {
-        "CianBrz": "Planejando",
-        "BingoRTv": "Planejando",
-        "Dioo": "-",
-        "Gumya": "-",
-        "Jotalhos": "Assistindo",
         "niccname": "-",
         "ViniAxd": "-",
         "SleepyGT": "-",
